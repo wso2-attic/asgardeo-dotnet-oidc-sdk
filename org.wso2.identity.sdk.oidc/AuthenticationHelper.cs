@@ -62,7 +62,15 @@ namespace org.wso2.identity.sdk.oidc
 
             // Creates HttpListener to listen for requests on above redirect URI.
             var http = new HttpListener();
-            http.Prefixes.Add(config.PostLogoutRedirectUri);
+            
+            // We need to have a trailing slash at the end of the URL. 
+            var redirectUri = config.RedirectUri;
+            if (!redirectUri.EndsWith("/"))
+            {
+                redirectUri += "/";
+            }
+
+            http.Prefixes.Add(redirectUri);
 
             // Open the web browser.
             http.Start();
