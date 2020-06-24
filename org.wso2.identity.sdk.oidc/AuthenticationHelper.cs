@@ -78,7 +78,7 @@ namespace org.wso2.identity.sdk.oidc
             // Create the OAuth2 authorization request.
             string authorizationRequest = string.Format(Constants.AuthorizationRequest,
                 config.AuthorizationEndpoint,
-                System.Uri.EscapeDataString(config.PostLogoutRedirectUri),
+                Uri.EscapeDataString(config.PostLogoutRedirectUri),
                 config.ClientId,
                 state,
                 codeChallenge,
