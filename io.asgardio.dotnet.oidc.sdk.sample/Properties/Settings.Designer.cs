@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace org_wso2_sample_identity_PickupManager.Properties {
+namespace io_asgardio_dotnet_oidc_sdk_sample.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

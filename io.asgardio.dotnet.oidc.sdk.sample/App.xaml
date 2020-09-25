@@ -12,10 +12,10 @@
     See the License for the specific language governing permissions and
     limitations under the License. -->
     
-<Application x:Class="org.wso2.sample.identity.PickupManager.App"
+<Application x:Class="io.asgardio.dotnet.oidc.sdk.sample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:org.wso2.identity.sample.PickupManager">
+             xmlns:local="clr-namespace:io.asgardio.dotnet.oidc.sdk.sample">
     <Application.Resources>
          
     </Application.Resources>

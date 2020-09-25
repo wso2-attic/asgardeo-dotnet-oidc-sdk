@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-using org.wso2.identity.sdk.oidc;
 using System.Windows;
 
-namespace org.wso2.identity.sample.PickupManager
+namespace io.asgardio.dotnet.oidc.sdk.sample
 {
+    using io.asgardio.dotnet.oidc.sdk;
     /// <summary>
     /// Interaction logic for LoginPage.xaml.
     /// </summary> 

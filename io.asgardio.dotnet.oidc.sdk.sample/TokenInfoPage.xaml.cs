@@ -18,10 +18,10 @@ using Newtonsoft.Json;
 using System;
 using System.Windows;
 using log4net;
-using org.wso2.identity.sdk.oidc;
 
-namespace org.wso2.identity.sample.PickupManager
+namespace io.asgardio.dotnet.oidc.sdk.sample
 {
+    using io.asgardio.dotnet.oidc.sdk;
     /// <summary>
     /// Interaction logic for TokenInfoPage.xaml.
     /// </summary> 
@@ -40,7 +40,7 @@ namespace org.wso2.identity.sample.PickupManager
         /// <summary>
         /// Constructor for TokenInfoPage class.
         /// </summary>
-        /// <param name="accessToken"> Refers to AuthenticationHelper class login() function in org.wso2.identity.sdk.oidc.dll file. </param>
+        /// <param name="accessToken"> Refers to AuthenticationHelper class login() function in io.asgardio.dotnet.oidc.sdk.dll file. </param>
         public TokenInfoPage(string accessToken)
         {
             InitializeComponent();

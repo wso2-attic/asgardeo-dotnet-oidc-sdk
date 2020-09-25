@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace org.wso2.identity.sdk.oidc
+namespace io.asgardio.dotnet.oidc.sdk
 {
     /// <summary>
     /// A collection of all constants.

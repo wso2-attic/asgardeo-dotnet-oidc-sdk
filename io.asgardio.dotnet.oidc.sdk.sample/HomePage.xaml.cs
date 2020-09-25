@@ -17,10 +17,10 @@
 using Newtonsoft.Json;
 using System.Windows;
 using log4net;
-using org.wso2.identity.sdk.oidc;
 
-namespace org.wso2.identity.sample.PickupManager
+namespace io.asgardio.dotnet.oidc.sdk.sample
 {
+    using io.asgardio.dotnet.oidc.sdk;
     /// <summary>
     /// Interaction logic for HomePage.xaml.
     /// </summary> 
@@ -38,7 +38,7 @@ namespace org.wso2.identity.sample.PickupManager
 
         /// <summary>
         /// 'config' is an object that refers ServerConfiguration class 
-        /// in 'org.wso2.identity.sdk.oidc' library.
+        /// in 'io.asgardio.dotnet.oidc.sdk' library.
         /// </summary>
         readonly ServerConfiguration config = new ServerConfiguration();
         readonly AuthenticationHelper authenticationHelper = new AuthenticationHelper();
@@ -98,7 +98,7 @@ namespace org.wso2.identity.sample.PickupManager
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    // Redirect to Logout method in org.wso2.identity.sdk.oidc.dll file.
+                    // Redirect to Logout method in io.asgardio.dotnet.oidc.sdk.dll file.
                     await authenticationHelper.Logout(accessToken);
                     request = authenticationHelper.Request;
 

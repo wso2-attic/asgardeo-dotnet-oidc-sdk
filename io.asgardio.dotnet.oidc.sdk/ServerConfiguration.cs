@@ -16,7 +16,7 @@
 
 using System.Configuration;
 
-namespace org.wso2.identity.sdk.oidc
+namespace io.asgardio.dotnet.oidc.sdk
 {
     /// <summary>
     /// Manage all server configurations.

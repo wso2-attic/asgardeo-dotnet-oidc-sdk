@@ -19,10 +19,10 @@ using System.Xml;
 using System.ComponentModel;
 using System.Collections;
 using System.Windows;
-using org.wso2.identity.sdk.oidc;
 
-namespace org.wso2.sample.identity.PickupManager
+namespace io.asgardio.dotnet.oidc.sdk.sample
 {
+    using io.asgardio.dotnet.oidc.sdk;
     /// <summary>
     /// Interaction logic for Installer
     /// </summary>

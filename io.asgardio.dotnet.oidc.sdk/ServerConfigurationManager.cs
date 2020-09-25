@@ -21,7 +21,7 @@ using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
-namespace org.wso2.identity.sdk.oidc
+namespace io.asgardio.dotnet.oidc.sdk
 {
     /// <summary>
     /// Manage all server configurations.

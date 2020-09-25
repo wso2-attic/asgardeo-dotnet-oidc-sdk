@@ -24,7 +24,7 @@ using System.IO;
 using System.Security.Cryptography;
 using log4net;
 
-namespace org.wso2.identity.sdk.oidc
+namespace io.asgardio.dotnet.oidc.sdk
 {
     /// <summary>
     /// Manages all basic authentications.

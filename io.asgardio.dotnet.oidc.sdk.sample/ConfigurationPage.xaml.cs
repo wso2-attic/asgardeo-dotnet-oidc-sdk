@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-using org.wso2.identity.sdk.oidc;
 using System.Windows;
 
-namespace org.wso2.identity.sample.PickupManager
+namespace io.asgardio.dotnet.oidc.sdk.sample
 {
+    using io.asgardio.dotnet.oidc.sdk;
     /// <summary>
     /// Interaction logic for ConfigurationPage.xaml.
     /// </summary> 
@@ -26,7 +26,7 @@ namespace org.wso2.identity.sample.PickupManager
     {
         /// <summary>
         /// 'config' is an object that refers ServerConfiguration class 
-        /// in 'org.wso2.identity.sdk.oidc' library. 
+        /// in 'io.asgardio.dotnet.oidc.sdk' library. 
         /// </summary>
         readonly ServerConfiguration config = new ServerConfiguration();
 
@@ -51,7 +51,7 @@ namespace org.wso2.identity.sample.PickupManager
 
         /// <summary>
         /// Button click event for 'Update' button. This method refers to 
-        /// ServerConfigurationManager class --> UpdateAppSettings() method in 'org.wso2.identity.sdk.oidc' library
+        /// ServerConfigurationManager class --> UpdateAppSettings() method in 'io.asgardio.dotnet.oidc.sdk' library
         /// and save user given data to 'app.config' file.  
         /// </summary>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)

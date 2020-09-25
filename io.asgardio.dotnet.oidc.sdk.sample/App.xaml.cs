@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-using org.wso2.identity.sample.PickupManager;
-using org.wso2.identity.sdk.oidc;
 using System.Windows;
 
-namespace org.wso2.sample.identity.PickupManager
+namespace io.asgardio.dotnet.oidc.sdk.sample
 {
+    using io.asgardio.dotnet.oidc.sdk;
     /// <summary>
     /// Interaction logic for App.xaml.
     /// </summary>
@@ -27,7 +26,7 @@ namespace org.wso2.sample.identity.PickupManager
     {
         /// <summary>
         /// This method refers to ServerConfigurationManager class --> IsEmpty() method
-        /// in 'org.wso2.identity.sdk.oidc' library and check whether each and every <app_settings> is 
+        /// in 'io.asgardio.dotnet.oidc.sdk' library and check whether each and every <app_settings> is 
         /// completed in 'app.config' file. If <app_settings> data is empty it'll load the 'ConfigurationPage',
         /// else load the 'LoginPage'.
         /// </summary>

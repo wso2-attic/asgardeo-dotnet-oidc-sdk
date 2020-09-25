@@ -1,10 +1,10 @@
-# .NET SDK for OIDC
+# Asgardio .NET OIDC SDK
 
 This SDK contains APIs related to OIDC using WSO2 Identity Server. 
 
 ## Using the SDK on a project
 
-To use the SDK in your project, add the `org.wso2.identity.sdk.oidc.dll` file in the project or use the Nuget
+To use the SDK in your project, add the `io.asgardio.dotnet.oidc.sdk.dll` file in the project or use the Nuget
 package manager. 
 
 ### Building from the source
@@ -12,19 +12,19 @@ package manager.
 To build the project from the source, follow the instructions given below.
 
 1. Clone the repository using the following command. 
-``git clone https://github.com/wso2-extensions/identity-sdks-dotnet.git``
+``git clone https://github.com/asgardio/asgardio-dotnet-oidc-sdk.git``
 2. Open the solution using Visual Studio.
 3. Build the project. 
 
 ### Using Nuget package Manager
 
 1. Open the Nuget package manger.
-2. Search for `org.wso2.identity.sdk.oidc`.
+2. Search for `io.asgardio.dotnet.oidc.sdk`.
 3. Include it with the suggested required dependencies. 
 
 Instead, you can also run the following command in the package manager CLI as shown below. 
 
-``Install-Package org.wso2.identity.sdk.oidc -Version 1.0.0``
+``Install-Package io.asgardio.dotnet.oidc.sdk -Version 1.0.0``
 
 ## Using the SDK
 
@@ -83,4 +83,4 @@ var subject = json.sub;
 
 ## Sample App 
 
-Refer this [repository](https://github.com/wso2-extensions/identity-samples-dotnet) for a sample.
+Refer this [project](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/tree/master/io.asgardio.dotnet.oidc.sdk.sample) for a sample.

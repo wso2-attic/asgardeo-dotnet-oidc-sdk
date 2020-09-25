@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace org_wso2_sample_identity_PickupManager.Properties {
+namespace io_asgardio_dotnet_oidc_sdk_sample.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace org_wso2_sample_identity_PickupManager.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("org_wso2_sample_identity_PickupManager.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("io_asgardio_dotnet_oidc_sdk_sample.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

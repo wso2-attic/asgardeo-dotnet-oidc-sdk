@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Pickup-Manager-Setup"
+"ProjectName" = "8:io.asgardio.dotnet.oidc.sdk.sample.setup"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -159,12 +159,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_805314BA18CF4217BB397364026F18EA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_82B74B81071229CAE9D9F471AA2F1865"
         "OwnerKey" = "8:_1DE35E7DAA71991E8D61EFEC65086E6E"
         "MsmSig" = "8:_UNDEFINED"
@@ -172,7 +166,7 @@
         "Entry"
         {
         "MsmKey" = "8:_8CDBFDCCEF09A7DAFCF33D6D0E8640C3"
-        "OwnerKey" = "8:_CD45603B0A30BAFCE920BC97B2C34FF2"
+        "OwnerKey" = "8:_E6508823A4C6E86D9F5572B26506D080"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -243,6 +237,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C25E4CD69F504A179C292144CB0386C1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C2FB2D50C04553B74E0E2101F6173CEC"
         "OwnerKey" = "8:_1DE35E7DAA71991E8D61EFEC65086E6E"
         "MsmSig" = "8:_UNDEFINED"
@@ -255,14 +255,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CD45603B0A30BAFCE920BC97B2C34FF2"
-        "OwnerKey" = "8:_938055837FA64E08848323877538795E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CF72F6424593F434951D62CF851E01D2"
-        "OwnerKey" = "8:_CD45603B0A30BAFCE920BC97B2C34FF2"
+        "OwnerKey" = "8:_E6508823A4C6E86D9F5572B26506D080"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -281,6 +275,12 @@
         {
         "MsmKey" = "8:_D9BABF2A45F2D471BEB1163F8C8A684C"
         "OwnerKey" = "8:_1DE35E7DAA71991E8D61EFEC65086E6E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E6508823A4C6E86D9F5572B26506D080"
+        "OwnerKey" = "8:_938055837FA64E08848323877538795E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -382,7 +382,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CD45603B0A30BAFCE920BC97B2C34FF2"
+        "OwnerKey" = "8:_E6508823A4C6E86D9F5572B26506D080"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -979,26 +979,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_805314BA18CF4217BB397364026F18EA"
-            {
-            "SourcePath" = "8:..\\Login_App\\Assets\\manager.ico"
-            "TargetName" = "8:manager.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_82B74B81071229CAE9D9F471AA2F1865"
             {
             "AssemblyRegister" = "3:1"
@@ -1236,6 +1216,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C25E4CD69F504A179C292144CB0386C1"
+            {
+            "SourcePath" = "8:..\\io.asgardio.dotnet.oidc.sdk.sample\\Assets\\manager.ico"
+            "TargetName" = "8:manager.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C2FB2D50C04553B74E0E2101F6173CEC"
             {
             "AssemblyRegister" = "3:1"
@@ -1250,32 +1250,6 @@
                     }
                 }
             "SourcePath" = "8:System.Data.Common.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CD45603B0A30BAFCE920BC97B2C34FF2"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:org.wso2.identity.sdk.oidc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:org.wso2.identity.sdk.oidc.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
@@ -1338,6 +1312,37 @@
                     }
                 }
             "SourcePath" = "8:System.Runtime.Serialization.Primitives.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E6508823A4C6E86D9F5572B26506D080"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:org.wso2.identity.sdk.oidc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E6508823A4C6E86D9F5572B26506D080"
+                    {
+                    "Name" = "8:org.wso2.identity.sdk.oidc.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:org.wso2.identity.sdk.oidc.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
@@ -1423,7 +1428,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pickup-Manager"
         "ProductCode" = "8:{DA2E44C9-F86A-4DCA-90AB-32DCFD18AA9E}"
-        "PackageCode" = "8:{2AC89451-FB38-4203-8F90-AFF41D8A946F}"
+        "PackageCode" = "8:{A16FBC46-90F5-4C01-8B15-546D521D3E34}"
         "UpgradeCode" = "8:{DC70D368-66B8-49BE-8D98-2291288A9524}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1554,7 +1559,7 @@
             "Target" = "8:_938055837FA64E08848323877538795E"
             "Folder" = "8:_9DB39D495BA94401925D2919E17D616D"
             "WorkingFolder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
-            "Icon" = "8:_805314BA18CF4217BB397364026F18EA"
+            "Icon" = "8:_C25E4CD69F504A179C292144CB0386C1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EC3A9DEBE75240DE9D4AAE18378FCCF1"
@@ -1568,7 +1573,7 @@
             "Target" = "8:_938055837FA64E08848323877538795E"
             "Folder" = "8:_E639C5F6A17240AEA6409EA47D6486C9"
             "WorkingFolder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
-            "Icon" = "8:_805314BA18CF4217BB397364026F18EA"
+            "Icon" = "8:_C25E4CD69F504A179C292144CB0386C1"
             "Feature" = "8:"
             }
         }
@@ -2578,7 +2583,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_938055837FA64E08848323877538795E"
             {
-            "SourcePath" = "8:..\\Login_App\\obj\\Debug\\Login_App.exe"
+            "SourcePath" = "8:..\\io.asgardio.dotnet.oidc.sdk.sample\\obj\\Debug\\Login_App.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_81DD9BD4EDD64C3581F0BB2B11096534"
