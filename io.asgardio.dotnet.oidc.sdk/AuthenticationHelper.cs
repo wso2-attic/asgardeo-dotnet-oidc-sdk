@@ -80,7 +80,7 @@ namespace io.asgardio.dotnet.oidc.sdk
             // Create the OAuth2 authorization request.
             string authorizationRequest = string.Format(Constants.AuthorizationRequest,
                 config.AuthorizationEndpoint,
-                Uri.EscapeDataString(config.PostLogoutRedirectUri),
+                Uri.EscapeDataString(redirectUri),
                 config.ClientId,
                 state,
                 codeChallenge,
@@ -132,7 +132,7 @@ namespace io.asgardio.dotnet.oidc.sdk
             Log.Info("Authorization code: " + code);
 
             // Starts the code exchange at the Token Endpoint.
-            await PerformCodeExchange(code, codeVerifier, config.PostLogoutRedirectUri);
+            await PerformCodeExchange(code, codeVerifier, redirectUri);
         }
 
         /// <summary>
