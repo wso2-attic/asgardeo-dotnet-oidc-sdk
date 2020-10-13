@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='Windows-1252'?>
+<!--
+  ~ Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+-->
+
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi' xmlns:util='http://schemas.microsoft.com/wix/UtilExtension' >
+  <Product Name='Pickup Manager - OIDC v$(var.Version)' Id='F21F91DE-2247-4208-8D52-6DEC47B6849C' UpgradeCode='AE0CE91A-962B-420B-B3EC-83C67FB47126'
+    Language='1033' Codepage='1252' Version='$(var.Version)' Manufacturer='WSO2 Inc.'>
+
+    <Package Id='*' Keywords='Installer'
+      Description="Pickup Manager - OIDC v$(var.Version) Installer"
+      Manufacturer='WSO2 Inc.'
+      InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
+
+    <Media Id='1' Cabinet='Main.cab' EmbedCab='yes' DiskPrompt="CD-ROM #1" />
+    <Property Id='DiskPrompt' Value="Pickup Manager - OIDC Installation [1]" />
+
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+      <Directory Id='ProgramFilesFolder' Name='PFiles'>
+        <Directory Id='WSO2' Name='WSO2 Inc'>
+          <Directory Id="PickupManager" Name="Pickup Manager - OIDC">
+            <Directory Id='INSTALLDIR' Name='v$(var.Version)'>
+
+              <Component Id='MainExecutable' Guid='9DCD8F1A-63C1-4E66-9CEC-92BB28DC905B'>
+                <File Id='PickupManagerEXE' Name='PickupManager.exe' DiskId='1' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/Login_App.exe' KeyPath='yes'>
+                  <Shortcut Id="startmenuFoobar10" Directory="ProgramMenuDir" Name="Pickup Manager - OIDC v$(var.Version)" WorkingDirectory='INSTALLDIR' Icon="PickupManager.exe" IconIndex="0" Advertise="yes" />
+                  <Shortcut Id="desktopFoobar10" Directory="DesktopFolder" Name="Pickup Manager - OIDC v$(var.Version)" WorkingDirectory='INSTALLDIR' Icon="PickupManager.exe" IconIndex="0" Advertise="yes" />
+                </File>
+              </Component>
+
+              <Component Id='AppConfig' Guid='545F8ABA-4DD2-43D6-A169-79C62ED2750E'>
+                <File Id='AppConfig' Name='PickupManager.exe.config' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/Login_App.exe.config' KeyPath='yes' />
+                <util:XmlFile Id="UpdateClientId" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                  ElementPath="/configuration/appSettings/add[\[]@key='ClientId'[\]]/@value"
+                  Value="[CLIENT_ID]" />
+                <util:XmlFile Id="UpdateClientSecret" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                    ElementPath="/configuration/appSettings/add[\[]@key='ClientSecret'[\]]/@value"
+                    Value="[CLIENT_SECRET]" />
+                <util:XmlFile Id="UpdateAuthorizationEndpoint" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                    ElementPath="/configuration/appSettings/add[\[]@key='AuthorizationEndpoint'[\]]/@value"
+                    Value="[AUTHORIZATION_ENDPOINT]" />
+                <util:XmlFile Id="UpdateTokenEndpoint" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                    ElementPath="/configuration/appSettings/add[\[]@key='TokenEndpoint'[\]]/@value"
+                    Value="[TOKEN_ENDPOINT]" />
+                <util:XmlFile Id="UpdateUserInfoEndpoint" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                    ElementPath="/configuration/appSettings/add[\[]@key='UserInfoEndpoint'[\]]/@value"
+                    Value="[USER_INFO_ENDPOINT]" />
+                <util:XmlFile Id="UpdateLogoutEndpoint" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                    ElementPath="/configuration/appSettings/add[\[]@key='LogoutEndpoint'[\]]/@value"
+                    Value="[LOGOUT_ENDPOINT]" />
+                <util:XmlFile Id="UpdateRedirecctUri" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                      ElementPath="/configuration/appSettings/add[\[]@key='RedirectURI'[\]]/@value"
+                      Value="[REDIRECT_URI]" />
+                <util:XmlFile Id="UpdatePostLogoutRedirectUri" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
+                      ElementPath="/configuration/appSettings/add[\[]@key='PostLogoutRedirectURI'[\]]/@value"
+                      Value="[POST_LOGOUT_REDIRECT_URI]" />
+              </Component>
+
+              <Component Id='Libraries' Guid='F7701A2C-FE05-4D37-B9CA-B021388A5E7A'>
+                <File Id='SdkDll' Name='io.asgardio.dotnet.oidc.sdk.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/io.asgardio.dotnet.oidc.sdk.dll' KeyPath='yes' />
+                <File Id='Log4netDll' Name='log4net.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/log4net.dll' />
+                <File Id='NewtonsoftDll' Name='Newtonsoft.Json.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/Newtonsoft.Json.dll' />
+                <File Id='IdentiyModelDll' Name='System.IdentityModel.Tokens.Jwt.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/System.IdentityModel.Tokens.Jwt.dll' />
+                <File Id='IdentiyModelXml' Name='System.IdentityModel.Tokens.Jwt.xml' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/System.IdentityModel.Tokens.Jwt.xml' />
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="Pickup Manager - OIDC">
+            <Component Id="ProgramMenuDir" Guid="84DEDE0B-EE70-4D34-B030-F22DBDF56F9E">
+              <RemoveFolder Id='ProgramMenuDir' On='uninstall' />
+              <RegistryValue Root='HKCU' Key='Software\[Manufacturer]\[ProductName]' Type='string' Value='' KeyPath='yes' />
+            </Component>
+          </Directory>
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+    <Feature Id='Complete' Title='Pickup Manager - OIDC v$(var.Version) Complete' Description='The complete installation.'
+      Display='expand' Level='1' ConfigurableDirectory='INSTALLDIR'>
+      <Feature Id='MainProgram' Title='Program' Description='The main program.' Level='1'>
+        <ComponentRef Id='MainExecutable' />
+        <ComponentRef Id='AppConfig' />
+        <ComponentRef Id='Libraries' />
+        <ComponentRef Id='ProgramMenuDir' />
+      </Feature>
+    </Feature>
+
+    <UI Id="CustomUI">
+      <UIRef Id="WixUI_InstallDir" />
+
+      <DialogRef Id="OAuthConfigDialog" />
+
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="OAuthConfigDialog" Order="4">1</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="OAuthConfigDialog" Order="1">1</Publish>
+    </UI>
+    <UIRef Id="WixUI_ErrorProgressText" />
+    
+    <?define Version ?>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <Property Id="CLIENT_ID" Secure="yes" />
+    <Property Id="CLIENT_SECRET" Secure="yes" />
+    <Property Id="AUTHORIZATION_ENDPOINT" Value="https://localhost:9443/oauth2/authorize" />
+    <Property Id="TOKEN_ENDPOINT" Value="https://localhost:9443/oauth2/token" />
+    <Property Id="USER_INFO_ENDPOINT" Value="https://localhost:9443/oauth2/userinfo" />
+    <Property Id="LOGOUT_ENDPOINT" Value="https://localhost:9443/oauth2/logout" />
+    <Property Id="REDIRECT_URI" Value="http://localhost:8080/pickup-manager/callback/" />
+    <Property Id="POST_LOGOUT_REDIRECT_URI" Value="http://localhost:8080/pickup-manager/postlogout/" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="../LICENSE.rtf" />
+
+    <Icon Id="PickupManager.exe" SourceFile="../io.asgardio.dotnet.oidc.sdk.sample/Assets/manager.ico" />
+  </Product>
+</Wix>
