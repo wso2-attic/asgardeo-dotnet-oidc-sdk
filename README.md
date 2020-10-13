@@ -52,7 +52,8 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
 1. Download the sample application setup from [here](link).
 2. Double click the `setup.exe`.
 3. Follow the on-screen guidance until you get to the app configuration window.
-   ![forms](https://user-images.githubusercontent.com/15249242/95334388-a84e0200-08cb-11eb-89e6-e44d8ac158e4.gif)
+   ![Sample Setup](https://user-images.githubusercontent.com/15249242/95815321-064e6f80-0d3a-11eb-91bf-44dd6ff47b45.gif)
+
 4. Fill out the following fields.
 
        Client ID - <Enter the copied value of `OAuth Client Key` when creating the Service Provider>
@@ -71,7 +72,7 @@ Double click on the `Pickup Manager` application available on your Desktop.<br/>
 
 ## How it works
 This section explains a detailed walkthrough on how key aspects are handled in the Asgardio .NET OIDC SDK.
-Througout this section we will refer to the source folder of the sample as <APP_HOME>
+Througout this section we will refer to the [source folder](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/tree/master/io.asgardio.dotnet.oidc.sdk.sample) of the sample as <APP_HOME>
 
   * [Trigger authentication](#trigger-authentication)
   * [Retrieve user attributes](#retrieve-user-attributes)
@@ -81,17 +82,16 @@ The structure of the sample would be as follows:<br/>
 ![structure](https://user-images.githubusercontent.com/15249242/95333060-e34f3600-08c9-11eb-91e3-8ea64446eb77.PNG)
 
 ### Trigger authentication
-In the `<APP_HOME>/LoginPage.xaml` page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
+In the [<APP_HOME>/LoginPage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/io.asgardio.dotnet.oidc.sdk.sample/LoginPage.xaml#L30) page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
 ```xml
-<Button x:Name ="login" Content="LOGIN" HorizontalAlignment="Left" Margin="73,452,0,0" VerticalAlignment="Top" 
-                Width="240" Height="56" FontFamily="Segoe UI Black" FontSize="22" Click="LoginButton_Click" Background="LightSeaGreen" Foreground="Black"/>
+<Button x:Name ="login" Click="LoginButton_Click"/>
 ```
 
 The button click would trigger an authentication request, and redirect the user to the IdP authentication page.
 Upon successful authentication, the user would be redirected to the application homepage.
 
 ### Retrieve user attributes
-In the `<APP_HOME>/LoginPage.xaml.cs` file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
+In the [<APP_HOME>/LoginPage.xaml.cs](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/io.asgardio.dotnet.oidc.sdk.sample/LoginPage.xaml.cs#L45) file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
 
 ```csharp
 private async void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -114,14 +114,9 @@ private async void LoginButton_Click(object sender, RoutedEventArgs e)
 ```
 
 ### Trigger logout
-In the `<APP_HOME>/HomePage.xaml` file, we have added the following button to trigger a SLO flow:
+In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/io.asgardio.dotnet.oidc.sdk.sample/HomePage.xaml#L48) file, we have added the following button to trigger a SLO flow:
 ```xml
-<Button x:Name="logoutButton" Width="Auto" Foreground="White" Background="Black" FontWeight="Bold" 
-        FontSize="14" Click="Logout_button_click" Margin="944,10,9.6,650.2">
-    <StackPanel Orientation="Horizontal">
-        <Image Source="Assets/logout-white.png" Width="20" Height="20"/>
-    </StackPanel>
-</Button>
+<Button x:Name="logoutButton" Click="Logout_button_click" />
 ```
 
 Clicking on the logout link would trigger the SLO flow.
