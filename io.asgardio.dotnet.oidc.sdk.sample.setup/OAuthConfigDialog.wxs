@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!--
+  ~ Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+-->
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <UI>
+      <Dialog Id="OAuthConfigDialog" Width="370" Height="427" Title="[ProductName] [Setup]" NoMinimize="yes">
+        <Control Id="ClientIdLabel" Type="Text" X="45" Y="73" Width="100" Height="15" TabSkip="no" Text="&amp;Client ID:" />
+        <Control Id="ClientIdEdit" Type="Edit" X="45" Y="85" Width="265" Height="18" Property="CLIENT_ID" Text="{80}" />
+        <Control Id="ClientSecretLabel" Type="Text" X="45" Y="110" Width="100" Height="15" TabSkip="no" Text="&amp;Client Secret:" />
+        <Control Id="ClientSecretEdit" Type="Edit" X="45" Y="122" Width="265" Height="18" Property="CLIENT_SECRET" Text="{80}" />
+        <Control Id="AuthorizationEndpointLabel" Type="Text" X="45" Y="147" Width="100" Height="15" TabSkip="no" Text="&amp;Authorization Endpoint:" />
+        <Control Id="AuthorizationEndpointEdit" Type="Edit" X="45" Y="159" Width="265" Height="18" Property="AUTHORIZATION_ENDPOINT" Text="{80}" />
+        <Control Id="TokenEndpointLabel" Type="Text" X="45" Y="184" Width="100" Height="15" TabSkip="no" Text="&amp;Token Endpoint:" />
+        <Control Id="TokenEndpointEdit" Type="Edit" X="45" Y="196" Width="265" Height="18" Property="TOKEN_ENDPOINT" Text="{80}" />
+        <Control Id="UserInfoEndpointLabel" Type="Text" X="45" Y="221" Width="100" Height="15" TabSkip="no" Text="&amp;User Info Endpoint:" />
+        <Control Id="UserInfoEndpointEdit" Type="Edit" X="45" Y="233" Width="265" Height="18" Property="USER_INFO_ENDPOINT" Text="{80}" />
+        <Control Id="LogoutEndpointLabel" Type="Text" X="45" Y="258" Width="100" Height="15" TabSkip="no" Text="&amp;Logout Endpoint:" />
+        <Control Id="LogoutEndpointEdit" Type="Edit" X="45" Y="270" Width="265" Height="18" Property="LOGOUT_ENDPOINT" Text="{80}" />
+        <Control Id="RedirectUriLabel" Type="Text" X="45" Y="295" Width="100" Height="15" TabSkip="no" Text="&amp;Redirect URI:" />
+        <Control Id="RedirectUriEdit" Type="Edit" X="45" Y="307" Width="265" Height="18" Property="REDIRECT_URI" Text="{80}" />
+        <Control Id="PostLogoutRedirectUriLabel" Type="Text" X="45" Y="332" Width="100" Height="15" TabSkip="no" Text="&amp;Post Logout Redirect URI:" />
+        <Control Id="PostLogoutRedirectUriEdit" Type="Edit" X="45" Y="344" Width="265" Height="18" Property="POST_LOGOUT_REDIRECT_URI" Text="{80}" />
+
+        <Control Id="Back" Type="PushButton" X="180" Y="400" Width="56" Height="17" Text="&amp;Back">
+          <Publish Event="NewDialog" Value="InstallDirDlg">NOT Installed</Publish>
+        </Control>
+        <Control Id="Next" Type="PushButton" X="236" Y="400" Width="56" Height="17" Default="yes" Text="&amp;Next">
+          <Publish Event="NewDialog" Value="VerifyReadyDlg">WIXUI_DONTVALIDATEPATH OR WIXUI_INSTALLDIR_VALID="1"</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="400" Width="56" Height="17" Cancel="yes" Text="Cancel">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="WixUI_Bmp_Banner" />
+        <Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
+          <Text>Please provide your OAuth configurations</Text>
+        </Control>
+        <Control Id="BottomLine" Type="Line" X="0" Y="390" Width="370" Height="0" />
+        <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
+          <Text>{\WixUI_Font_Title}OAuth Configuration Dialog</Text>
+        </Control>
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+      </Dialog>
+    </UI>
+  </Fragment>
+</Wix>
