@@ -49,8 +49,8 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
     ![OAuth Client Credentials](https://user-images.githubusercontent.com/15249242/91567068-27155e00-e962-11ea-8eab-b3bdd790bfd4.png)
 
 ### Configuring the sample
-1. Download the [PickupManagerOIDC-v1.0.1.msi](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v1.0.1/PickupManagerOIDC-v1.0.1.msi).
-2. Double click the `PickupManagerOIDC-v1.0.1.msi`.
+1. Download the [PickupManagerOIDC-v1.0.2.msi](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v1.0.2/PickupManagerOIDC-v1.0.2.msi).
+2. Double click the `PickupManagerOIDC-v1.0.2.msi`.
 3. Follow the on-screen guidance until you get to the app configuration window.
    ![Sample Setup](https://user-images.githubusercontent.com/15249242/95815321-064e6f80-0d3a-11eb-91bf-44dd6ff47b45.gif)
 
@@ -67,7 +67,7 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
 5. Continue the on-screen guidance and complete the installation.
 
 ### Running the sample
-Double click on the `Pickup Manager - OIDC v1.0.1` application available on your Desktop.<br/>
+Double click on the `Pickup Manager - OIDC v1.0.2` application available on your Desktop.<br/>
 ![pickup manager](https://user-images.githubusercontent.com/15249242/95334396-aa17c580-08cb-11eb-83ee-3b88b8512f68.gif)
 
 ## How it works
@@ -147,10 +147,10 @@ This guide consist with the following sections.
 
 Alternatively, you can also run the following command in the Package Manager CLI as shown below. 
 
-``Install-Package io.asgardio.dotnet.oidc.sdk -Version 1.0.1``
+``Install-Package io.asgardio.dotnet.oidc.sdk -Version 1.0.2``
 
 #### Using the library DLL
-1. Download [io.asgardio.dotnet.oidc.sdk.dll](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v1.0.1/io.asgardio.dotnet.oidc.sdk.dll).
+1. Download [io.asgardio.dotnet.oidc.sdk.dll](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v1.0.2/io.asgardio.dotnet.oidc.sdk.dll).
 2. Add the `io.asgardio.dotnet.oidc.sdk.dll` file as a Reference in your Visual Studio project.
 3. Build the project. 
 
@@ -221,4 +221,5 @@ in order to reach the proper audience. We strongly advise following the WSO2 Sec
 
 ## License
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+
 
