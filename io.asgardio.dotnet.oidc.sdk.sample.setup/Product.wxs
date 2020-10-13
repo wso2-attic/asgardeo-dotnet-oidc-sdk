@@ -74,8 +74,6 @@
                 <File Id='SdkDll' Name='io.asgardio.dotnet.oidc.sdk.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/io.asgardio.dotnet.oidc.sdk.dll' KeyPath='yes' />
                 <File Id='Log4netDll' Name='log4net.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/log4net.dll' />
                 <File Id='NewtonsoftDll' Name='Newtonsoft.Json.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/Newtonsoft.Json.dll' />
-                <File Id='IdentiyModelDll' Name='System.IdentityModel.Tokens.Jwt.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/System.IdentityModel.Tokens.Jwt.dll' />
-                <File Id='IdentiyModelXml' Name='System.IdentityModel.Tokens.Jwt.xml' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/System.IdentityModel.Tokens.Jwt.xml' />
               </Component>
             </Directory>
           </Directory>
@@ -122,7 +120,7 @@
     <Property Id="AUTHORIZATION_ENDPOINT" Value="https://localhost:9443/oauth2/authorize" />
     <Property Id="TOKEN_ENDPOINT" Value="https://localhost:9443/oauth2/token" />
     <Property Id="USER_INFO_ENDPOINT" Value="https://localhost:9443/oauth2/userinfo" />
-    <Property Id="LOGOUT_ENDPOINT" Value="https://localhost:9443/oauth2/logout" />
+    <Property Id="LOGOUT_ENDPOINT" Value="https://localhost:9443/oidc/logout" />
     <Property Id="REDIRECT_URI" Value="http://localhost:8080/pickup-manager/callback/" />
     <Property Id="POST_LOGOUT_REDIRECT_URI" Value="http://localhost:8080/pickup-manager/postlogout/" />
 
