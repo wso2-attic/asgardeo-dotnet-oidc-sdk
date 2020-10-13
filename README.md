@@ -17,7 +17,7 @@ Asgardio .NET OIDC SDK enables you to add OIDC based login, logout to your .NET 
 - [License](#license)
 
 ## Getting started
-You can experience the capabilities of Asgardio .NET OIDC SDK by following this small guide which contains main sections listed below.
+You can experience the capabilities of Asgardio .NET OIDC SDK by following this small guide which contains main sections as listed below.
 
   * [Prerequisites](#prerequisites)
   * [Configuring the sample](#configuring-the-sample)
@@ -40,7 +40,7 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
    iii. Expand the  `Inbound Authentication Configuration` section and click `Configure` under the `OAuth/OpenID Connect Configuration` section.<br/>
    iv. Provide the following values for the respective fields and click `Update` while keeping other default settings as it is.
 
-       Callback Url - regexp=(http://localhost:8080/callback/|http://localhost:8080/postlogout/)
+       Callback Url - regexp=(http://localhost:8080/pickup-manager/callback/|http://localhost:8080/pickup-manager/postlogout/)
    v. Click `Update` to save.
 
 3. Once the service provider is saved, you will be redirected to the `Service Provider Details` page. Here, expand the
@@ -61,8 +61,8 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
        Token Endpoint - https://localhost:9443/oauth2/token
        Userinfo Endpoint - https://localhost:9443/oauth2/userinfo
        Logout Endpoint - https://localhost:9443/oidc/logout
-       Redirect URI - http://localhost:8080/callback/
-       PostLogout Redirect URI - http://localhost:8080/postlogout/
+       Redirect URI - http://localhost:8080/pickup-manager/callback/
+       PostLogout Redirect URI - http://localhost:8080/pickup-manager/postlogout/
 5. Continue the on-screen guidance and complete the installation.
 
 ### Running the sample
@@ -70,7 +70,7 @@ Double click on the `Pickup Manager` application available on your Desktop.<br/>
 ![pickup manager](https://user-images.githubusercontent.com/15249242/95334396-aa17c580-08cb-11eb-83ee-3b88b8512f68.gif)
 
 ## How it works
-This section explains detailed walkthrough on how key aspects handled in the Asgardio .NET OIDC SDK.
+This section explains a detailed walkthrough on how key aspects are handled in the Asgardio .NET OIDC SDK.
 Througout this section we will refer to the source folder of the sample as <APP_HOME>
 
   * [Trigger authentication](#trigger-authentication)
@@ -81,7 +81,7 @@ The structure of the sample would be as follows:<br/>
 ![structure](https://user-images.githubusercontent.com/15249242/95333060-e34f3600-08c9-11eb-91e3-8ea64446eb77.PNG)
 
 ### Trigger authentication
-In the `<APP_HOME>/LoginPage.xaml` page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger a OIDC authentication:
+In the `<APP_HOME>/LoginPage.xaml` page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
 ```xml
 <Button x:Name ="login" Content="LOGIN" HorizontalAlignment="Left" Margin="73,452,0,0" VerticalAlignment="Top" 
                 Width="240" Height="56" FontFamily="Segoe UI Black" FontSize="22" Click="LoginButton_Click" Background="LightSeaGreen" Foreground="Black"/>
@@ -91,7 +91,7 @@ The button click would trigger an authentication request, and redirect the user 
 Upon successful authentication, the user would be redirected to the application homepage.
 
 ### Retrieve user attributes
-In the `<APP_HOME>/LoginPage.xaml.cs` file, we have added the following code inside the login button click trigger method to get the user subject value and the user attributes referring the SDK API.
+In the `<APP_HOME>/LoginPage.xaml.cs` file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
 
 ```csharp
 private async void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -128,7 +128,7 @@ Clicking on the logout link would trigger the SLO flow.
 
 ## Integrating OIDC SDK to your existing .NET application
 This section will guide you on integrating OIDC into your existing .NET application with the Asgardio Dotnet OIDC SDK.
-This allows a .NET application (i.e. Service Provider) to connect with an IDP using OpenID Connect protocol.
+This allows a .NET application (i.e. Service Provider) to connect with an IDP using the OpenID Connect protocol.
 This guide consist with the following sections.
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
@@ -138,9 +138,6 @@ This guide consist with the following sections.
 - [Login](#login)
 - [Logout](#logout)
 - [Get User Info](#get-user-info)
-
-### Introduction
-These instructions will guide you on integrating OIDC into your .NET application with the Asgardio Dotnet OIDC SDK. This allows an application (i.e. Service Provider) to connect with an IDP using OIDC protocol.
 
 ### Prerequisites
 1. Microsoft Windows 8 (Or server equivalent) or greater.
@@ -169,14 +166,14 @@ Once you have installed the SDK, create a file named `App.config` as shown below
 ```xml
 <configuration>
     <appSettings>
-        <add key="ClientId" value="fXZNpFBa3aNOCQ6rKU8ldsxT_WAa" />
-        <add key="ClientSecret" value="6x2fQgrT_Ov2R2OMbzfJ5yQjvVEa" />
+        <add key="ClientId" value="<YOUR_CLIENT_KEY>" />
+        <add key="ClientSecret" value="<YOUR_CLIENT_SECRET>" />
         <add key="AuthorizationEndpoint" value="https://localhost:9443/oauth2/authorize" />
         <add key="TokenEndpoint" value="https://localhost:9443/oauth2/token" />
         <add key="UserInfoEndpoint" value="https://localhost:9443/oauth2/userinfo" />
         <add key="LogoutEndpoint" value="https://localhost:9443/oidc/logout" />
-        <add key="RedirectURI" value="http://localhost:8080/callback/" />
-        <add key="PostLogoutRedirectURI" value="http://localhost:8080/postlogout/" />
+        <add key="RedirectURI" value="http://localhost:8080/pickup-manager/callback/" />
+        <add key="PostLogoutRedirectURI" value="http://localhost:8080/pickup-manager/postlogout/" />
         <add key="ClientSettingsProvider.ServiceUri" value="" />
   </appSettings>
 </configuration>
