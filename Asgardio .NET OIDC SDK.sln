@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "io.asgardio.dotnet.oidc.sdk", "io.asgardio.dotnet.oidc.sdk\io.asgardio.dotnet.oidc.sdk.csproj", "{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDK", "SDK\SDK.csproj", "{AE12799C-7BC5-4E51-90BF-7ADCBE411289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "io.asgardio.dotnet.oidc.sdk.sample", "io.asgardio.dotnet.oidc.sdk.sample\io.asgardio.dotnet.oidc.sdk.sample.csproj", "{78F23CF1-38C2-459E-9F16-0D44DA87EC60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{78F23CF1-38C2-459E-9F16-0D44DA87EC60}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "io.asgardio.dotnet.oidc.sdk.sample.setup", "io.asgardio.dotnet.oidc.sdk.sample.setup\io.asgardio.dotnet.oidc.sdk.sample.setup.wixproj", "{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Sample Installer", "Sample Installer\Sample Installer.wixproj", "{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +17,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Debug|x86.Build.0 = Debug|Any CPU
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Release|x86.ActiveCfg = Release|Any CPU
-		{0E3A80EB-806B-4042-9FB7-8131AA11C5EC}.Release|x86.Build.0 = Release|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Debug|x86.Build.0 = Debug|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Release|x86.ActiveCfg = Release|Any CPU
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289}.Release|x86.Build.0 = Release|Any CPU
 		{78F23CF1-38C2-459E-9F16-0D44DA87EC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78F23CF1-38C2-459E-9F16-0D44DA87EC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F23CF1-38C2-459E-9F16-0D44DA87EC60}.Debug|x86.ActiveCfg = Debug|Any CPU

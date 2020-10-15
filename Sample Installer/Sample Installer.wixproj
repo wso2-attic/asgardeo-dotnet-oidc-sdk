@@ -16,7 +16,6 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
 -->
-
 <Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -26,7 +25,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>io.asgardio.dotnet.oidc.sdk.sample.setup</OutputName>
     <OutputType>Package</OutputType>
-    <Name>io.asgardio.dotnet.oidc.sdk.sample.setup</Name>
+    <Name>Sample Installer</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
