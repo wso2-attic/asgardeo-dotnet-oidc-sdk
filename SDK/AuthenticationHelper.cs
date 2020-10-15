@@ -177,7 +177,7 @@ namespace Asgardio.Sdk.Oidc
                     // Converts to dictionary.
                     Dictionary<string, string> tokenEndpointDecoded = JsonConvert.DeserializeObject<
                         Dictionary<string, string>>(responseText);
-                    string accessToken = tokenEndpointDecoded["accessToken"];
+                    string accessToken = tokenEndpointDecoded["access_token"];
                     await UserinfoCall(accessToken);
                 }
             }
