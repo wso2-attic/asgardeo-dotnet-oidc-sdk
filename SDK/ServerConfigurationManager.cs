@@ -47,10 +47,7 @@ namespace Asgardio.Sdk.Oidc
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         /// <summary>
@@ -87,7 +84,8 @@ namespace Asgardio.Sdk.Oidc
         public void EnableSSLverification()
         {
             ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate
-                certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+                certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+            { return true; };
         }
     }
 }
