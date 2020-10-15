@@ -1,0 +1,43 @@
+name: Builder
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Release]
+
+    runs-on: windows-latest
+
+    env:
+      Solution_Name: org.wso2.identity.sdk.oidc.sln
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16
+
+    - name: Setup NuGet.exe
+      uses: NuGet/setup-nuget@v1.0.2
+
+    - name: Install Wix Toolset
+      run: |
+          (New-Object System.Net.WebClient).DownloadFile("https://github.com/wixtoolset/wix3/releases/download/wix3112rtm/wix311-binaries.zip","wix311-binaries.zip")
+          Expand-Archive .\wix311-binaries.zip wix311-binaries
+          echo "::add-path::./wix311-binaries"
+
+    - name: Restore Nuget Packages
+      run:  nuget.exe restore 'Asgardio .NET OIDC SDK.sln'
+
+    - name: Build the SDK and Sample
+      run:  msbuild 'Asgardio .NET OIDC SDK.sln'  /p:Configuration=Release
+      
