@@ -25,23 +25,14 @@ namespace Asgardio.Sdk.Oidc
     /// </summary>
     public class ServerConfiguration
     {
-        private string clientId;
-        private string clientSecret;
-        private string authorizationEndpoint;
-        private string tokenEndpoint;
-        private string userInfoEndpoint;
-        private string logoutEndpoint;
-        private string redirectUri;
-        private string postLogoutRedirectUri;
-
-        public string ClientId { get => clientId; set => clientId = value; }
-        public string ClientSecret { get => clientSecret; set => clientSecret = value; }
-        public string AuthorizationEndpoint { get => authorizationEndpoint; set => authorizationEndpoint = value; }
-        public string TokenEndpoint { get => tokenEndpoint; set => tokenEndpoint = value; }
-        public string UserInfoEndpoint { get => userInfoEndpoint; set => userInfoEndpoint = value; }
-        public string LogoutEndpoint { get => logoutEndpoint; set => logoutEndpoint = value; }
-        public string RedirectUri { get => redirectUri; set => redirectUri = value; }
-        public string PostLogoutRedirectUri { get => postLogoutRedirectUri; set => postLogoutRedirectUri = value; }
+        public string ClientId { get; set; }
+        public string ClientSecret { get; set; }
+        public string AuthorizationEndpoint { get; set; }
+        public string TokenEndpoint { get; set; }
+        public string UserInfoEndpoint { get; set; }
+        public string LogoutEndpoint { get; set; }
+        public string RedirectUri { get; set; }
+        public string PostLogoutRedirectUri { get; set; }
 
         /// <summary>
         /// Retrieves data to the frontend from 'app.config' file.
