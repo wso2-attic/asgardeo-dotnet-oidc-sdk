@@ -23,7 +23,8 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>52b28816-765a-4ae0-88f6-3a42ddfc1bba</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>io.asgardio.dotnet.oidc.sdk.sample.setup</OutputName>
+    <Version>0.0.0</Version>
+    <OutputName>PickupManagerOIDC-v$(Version)</OutputName>
     <OutputType>Package</OutputType>
     <Name>Sample Installer</Name>
   </PropertyGroup>
@@ -31,11 +32,13 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>Debug</DefineConstants>
+    <CompilerAdditionalOptions>-ext WixUtilExtension -dVersion=$(Version)</CompilerAdditionalOptions>
+    <LinkerAdditionalOptions>-ext WixUIExtension -ext WixUtilExtension</LinkerAdditionalOptions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <CompilerAdditionalOptions>-ext WixUtilExtension</CompilerAdditionalOptions>
+    <CompilerAdditionalOptions>-ext WixUtilExtension -dVersion=$(Version)</CompilerAdditionalOptions>
     <LinkerAdditionalOptions>-ext WixUIExtension -ext WixUtilExtension</LinkerAdditionalOptions>
   </PropertyGroup>
   <ItemGroup>

@@ -16,7 +16,7 @@
  * under the License.
  */
 
-namespace io.asgardio.dotnet.oidc.sdk
+namespace Asgardio.Sdk.Oidc
 {
     /// <summary>
     /// A collection of all constants.
