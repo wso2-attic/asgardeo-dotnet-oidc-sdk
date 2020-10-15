@@ -5,12 +5,14 @@
     <Company>WSO2</Company>
     <Product>Identity Server</Product>
     <Copyright>Apache 2.0</Copyright>
-    <Authors>IAM Team</Authors>
+    <Authors>WSO2</Authors>
     <RepositoryUrl>https://github.com/asgardio/asgardio-dotnet-oidc-sdk</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.0.0</Version>
+    <Version>0.1.0-SNAPSHOT</Version>
+    <AssemblyName>Asgardio.Sdk.Oidc</AssemblyName>
+    <RootNamespace>Asgardio.Sdk.Oidc</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -6,8 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDK", "SDK\SDK.csproj", "{AE12799C-7BC5-4E51-90BF-7ADCBE411289}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{78F23CF1-38C2-459E-9F16-0D44DA87EC60}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289} = {AE12799C-7BC5-4E51-90BF-7ADCBE411289}
+	EndProjectSection
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Sample Installer", "Sample Installer\Sample Installer.wixproj", "{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AE12799C-7BC5-4E51-90BF-7ADCBE411289} = {AE12799C-7BC5-4E51-90BF-7ADCBE411289}
+		{78F23CF1-38C2-459E-9F16-0D44DA87EC60} = {78F23CF1-38C2-459E-9F16-0D44DA87EC60}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,9 +41,11 @@ Global
 		{78F23CF1-38C2-459E-9F16-0D44DA87EC60}.Release|x86.ActiveCfg = Release|Any CPU
 		{78F23CF1-38C2-459E-9F16-0D44DA87EC60}.Release|x86.Build.0 = Release|Any CPU
 		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Debug|Any CPU.Build.0 = Debug|x86
 		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Debug|x86.ActiveCfg = Debug|x86
 		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Debug|x86.Build.0 = Debug|x86
 		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Release|Any CPU.ActiveCfg = Release|x86
+		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Release|Any CPU.Build.0 = Release|x86
 		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Release|x86.ActiveCfg = Release|x86
 		{52B28816-765A-4AE0-88F6-3A42DDFC1BBA}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection

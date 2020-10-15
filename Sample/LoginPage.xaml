@@ -12,12 +12,12 @@
     See the License for the specific language governing permissions and
     limitations under the License. -->
 
-<Window x:Class="io.asgardio.dotnet.oidc.sdk.sample.LoginPage"
+<Window x:Class="Asgardio.Samples.Oidc.LoginPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:io.asgardio.dotnet.oidc.sdk.sample"
+        xmlns:local="clr-namespace:Asgardio.Samples.Oidc"
         mc:Ignorable="d"
         Title="Pickup Manager App" Height="600" Width="400" Background="White" ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen">

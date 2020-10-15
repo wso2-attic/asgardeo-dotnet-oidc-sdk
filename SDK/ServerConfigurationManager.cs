@@ -23,7 +23,7 @@ using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
-namespace io.asgardio.dotnet.oidc.sdk
+namespace Asgardio.Sdk.Oidc
 {
     /// <summary>
     /// Manage all server configurations.
