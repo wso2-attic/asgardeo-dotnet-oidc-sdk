@@ -26,7 +26,7 @@ You can experience the capabilities of Asgardio .NET OIDC SDK by following this 
 
 ### Prerequisites
 1. Microsoft Windows 8 (Or server equivalent) or greater.
-2. .NET Framework Standard 4.6.1 or greater.
+2. [.NET Framework Standard 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461) or greater.
 3. WSO2 Identity Server
 
 ### Configuring Identity Server
@@ -49,8 +49,8 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
     ![OAuth Client Credentials](https://user-images.githubusercontent.com/15249242/91567068-27155e00-e962-11ea-8eab-b3bdd790bfd4.png)
 
 ### Configuring the sample
-1. Download the [PickupManagerOIDC-v1.0.1.msi](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v1.0.1/PickupManagerOIDC-v1.0.1.msi).
-2. Double click the `PickupManagerOIDC-v1.0.1.msi`.
+1. Download the [PickupManagerOIDC-v0.1.0.msi](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v0.1.0/PickupManagerOIDC-v0.1.0.msi).
+2. Double click the `PickupManagerOIDC-v0.1.0.msi`.
 3. Follow the on-screen guidance until you get to the app configuration window.
    ![Sample Setup](https://user-images.githubusercontent.com/15249242/95815321-064e6f80-0d3a-11eb-91bf-44dd6ff47b45.gif)
 
@@ -67,22 +67,22 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
 5. Continue the on-screen guidance and complete the installation.
 
 ### Running the sample
-Double click on the `Pickup Manager - OIDC v1.0.1` application available on your Desktop.<br/>
+Double click on the `Pickup Manager - OIDC v0.1.0` application available on your Desktop.<br/>
 ![pickup manager](https://user-images.githubusercontent.com/15249242/95334396-aa17c580-08cb-11eb-83ee-3b88b8512f68.gif)
 
 ## How it works
 This section explains a detailed walkthrough on how key aspects are handled in the Asgardio .NET OIDC SDK.
-Througout this section we will refer to the [source folder](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/tree/master/io.asgardio.dotnet.oidc.sdk.sample) of the sample as <APP_HOME>
+Througout this section we will refer to the [source folder](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/tree/master/Sample) of the sample as <APP_HOME>
 
   * [Trigger authentication](#trigger-authentication)
   * [Retrieve user attributes](#retrieve-user-attributes)
   * [Trigger logout](#trigger-logout)
 
 The structure of the sample would be as follows:<br/>
-![structure](https://user-images.githubusercontent.com/15249242/95333060-e34f3600-08c9-11eb-91e3-8ea64446eb77.PNG)
+![Sample Structure](https://user-images.githubusercontent.com/15249242/96110931-2f1f6200-0efe-11eb-97dd-6517b8234bb2.png)
 
 ### Trigger authentication
-In the [<APP_HOME>/LoginPage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/io.asgardio.dotnet.oidc.sdk.sample/LoginPage.xaml#L30) page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
+In the [<APP_HOME>/LoginPage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/Sample/LoginPage.xaml#L30) page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
 ```xml
 <Button x:Name ="login" Click="LoginButton_Click"/>
 ```
@@ -91,7 +91,7 @@ The button click would trigger an authentication request, and redirect the user 
 Upon successful authentication, the user would be redirected to the application homepage.
 
 ### Retrieve user attributes
-In the [<APP_HOME>/LoginPage.xaml.cs](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/io.asgardio.dotnet.oidc.sdk.sample/LoginPage.xaml.cs#L45) file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
+In the [<APP_HOME>/LoginPage.xaml.cs](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/Sample/LoginPage.xaml.cs#L45) file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
 
 ```csharp
 private async void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -114,7 +114,7 @@ private async void LoginButton_Click(object sender, RoutedEventArgs e)
 ```
 
 ### Trigger logout
-In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/io.asgardio.dotnet.oidc.sdk.sample/HomePage.xaml#L48) file, we have added the following button to trigger a SLO flow:
+In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/Sample/HomePage.xaml#L48) file, we have added the following button to trigger a SLO flow:
 ```xml
 <Button x:Name="logoutButton" Click="Logout_button_click" />
 ```
@@ -142,16 +142,16 @@ This guide consist with the following sections.
 ### Installing the SDK
 #### Using Nuget Package Manager
 1. Open the Nuget Package Manger.
-2. Search for [io.asgardio.dotnet.oidc.sdk](https://www.nuget.org/packages/io.asgardio.dotnet.oidc.sdk/).
+2. Search for [Asgardio.Sdk.Oidc](https://www.nuget.org/packages/Asgardio.Sdk.Oidc/).
 3. Include it with the suggested required dependencies for the project/solution. 
 
 Alternatively, you can also run the following command in the Package Manager CLI as shown below. 
 
-``Install-Package io.asgardio.dotnet.oidc.sdk -Version 1.0.1``
+``Install-Package Asgardio.Sdk.Oidc -Version 0.1.0``
 
 #### Using the library DLL
-1. Download [io.asgardio.dotnet.oidc.sdk.dll](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v1.0.1/io.asgardio.dotnet.oidc.sdk.dll).
-2. Add the `io.asgardio.dotnet.oidc.sdk.dll` file as a Reference in your Visual Studio project.
+1. Download [Asgardio.Sdk.Oidc.dll](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v0.1.0/Asgardio.Sdk.Oidc.dll).
+2. Add the `Asgardio.Sdk.Oidc.dll` file as a Reference in your Visual Studio project.
 3. Build the project. 
 
 Once you have installed the SDK, create a file named `App.config` as shown below and place it in the application path.
