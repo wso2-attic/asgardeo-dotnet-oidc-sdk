@@ -51,6 +51,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="io.asgardio.dotnet.oidc.sdk">
+      <HintPath>..\SDK\bin\Release\net461\io.asgardio.dotnet.oidc.sdk.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.11\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -205,12 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\WSO2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\io.asgardio.dotnet.oidc.sdk\io.asgardio.dotnet.oidc.sdk.csproj">
-      <Project>{0e3a80eb-806b-4042-9fb7-8131aa11c5ec}</Project>
-      <Name>io.asgardio.dotnet.oidc.sdk</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
