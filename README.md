@@ -220,6 +220,6 @@ in order to reach the proper audience. We strongly advise following the WSO2 Sec
  when reporting the security issues.
 
 ## License
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for detailss.
 
 
