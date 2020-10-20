@@ -36,14 +36,14 @@
             <Directory Id='INSTALLDIR' Name='v$(var.Version)'>
 
               <Component Id='MainExecutable' Guid='9DCD8F1A-63C1-4E66-9CEC-92BB28DC905B'>
-                <File Id='PickupManagerEXE' Name='PickupManager.exe' DiskId='1' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/Login_App.exe' KeyPath='yes'>
+                <File Id='PickupManagerEXE' Name='PickupManager.exe' DiskId='1' Source='../Sample/bin/Release/PickupManager.exe' KeyPath='yes'>
                   <Shortcut Id="startmenuFoobar10" Directory="ProgramMenuDir" Name="Pickup Manager - OIDC v$(var.Version)" WorkingDirectory='INSTALLDIR' Icon="PickupManager.exe" IconIndex="0" Advertise="yes" />
                   <Shortcut Id="desktopFoobar10" Directory="DesktopFolder" Name="Pickup Manager - OIDC v$(var.Version)" WorkingDirectory='INSTALLDIR' Icon="PickupManager.exe" IconIndex="0" Advertise="yes" />
                 </File>
               </Component>
 
               <Component Id='AppConfig' Guid='545F8ABA-4DD2-43D6-A169-79C62ED2750E'>
-                <File Id='AppConfig' Name='PickupManager.exe.config' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/Login_App.exe.config' KeyPath='yes' />
+                <File Id='AppConfig' Name='PickupManager.exe.config' Source='../Sample/bin/Release/PickupManager.exe.config' KeyPath='yes' />
                 <util:XmlFile Id="UpdateClientId" Action="setValue" File="[INSTALLDIR]PickupManager.exe.config" SelectionLanguage="XPath" Permanent="yes"
                   ElementPath="/configuration/appSettings/add[\[]@key='ClientId'[\]]/@value"
                   Value="[CLIENT_ID]" />
@@ -71,9 +71,9 @@
               </Component>
 
               <Component Id='Libraries' Guid='F7701A2C-FE05-4D37-B9CA-B021388A5E7A'>
-                <File Id='SdkDll' Name='io.asgardio.dotnet.oidc.sdk.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/io.asgardio.dotnet.oidc.sdk.dll' KeyPath='yes' />
-                <File Id='Log4netDll' Name='log4net.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/log4net.dll' />
-                <File Id='NewtonsoftDll' Name='Newtonsoft.Json.dll' Source='../io.asgardio.dotnet.oidc.sdk.sample/bin/Release/Newtonsoft.Json.dll' />
+                <File Id='SdkDll' Name='Asgardio.Sdk.Oidc.dll' Source='../Sample/bin/Release/Asgardio.Sdk.Oidc.dll' KeyPath='yes' />
+                <File Id='Log4netDll' Name='log4net.dll' Source='../Sample/bin/Release/log4net.dll' />
+                <File Id='NewtonsoftDll' Name='Newtonsoft.Json.dll' Source='../Sample/bin/Release/Newtonsoft.Json.dll' />
               </Component>
             </Directory>
           </Directory>
@@ -112,7 +112,7 @@
     </UI>
     <UIRef Id="WixUI_ErrorProgressText" />
     
-    <?define Version ?>
+    <?define Version = "0.0.0"?>
 
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
     <Property Id="CLIENT_ID" Secure="yes" />
@@ -126,6 +126,6 @@
 
     <WixVariable Id="WixUILicenseRtf" Value="../LICENSE.rtf" />
 
-    <Icon Id="PickupManager.exe" SourceFile="../io.asgardio.dotnet.oidc.sdk.sample/Assets/manager.ico" />
+    <Icon Id="PickupManager.exe" SourceFile="../Sample/Assets/manager.ico" />
   </Product>
 </Wix>

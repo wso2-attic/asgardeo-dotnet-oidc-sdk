@@ -23,7 +23,7 @@ using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
-namespace io.asgardio.dotnet.oidc.sdk
+namespace Asgardio.Sdk.Oidc
 {
     /// <summary>
     /// Manage all server configurations.
@@ -47,10 +47,7 @@ namespace io.asgardio.dotnet.oidc.sdk
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         /// <summary>
@@ -87,7 +84,8 @@ namespace io.asgardio.dotnet.oidc.sdk
         public void EnableSSLverification()
         {
             ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate
-                certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+                certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+            { return true; };
         }
     }
 }

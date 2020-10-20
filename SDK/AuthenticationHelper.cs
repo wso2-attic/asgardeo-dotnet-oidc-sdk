@@ -26,25 +26,21 @@ using System.IO;
 using System.Security.Cryptography;
 using log4net;
 
-namespace io.asgardio.dotnet.oidc.sdk
+namespace Asgardio.Sdk.Oidc
 {
     /// <summary>
     /// Manages all basic authentications.
     /// </summary>
     public class AuthenticationHelper
     {
-        private string accessToken;
-        private string userInfo;
-        private string request;
-
-        public string AccessToken { get => accessToken; set => accessToken = value; }
-        public string UserInfo { get => userInfo; set => userInfo = value; }
-        public string Request { get => request; set => request = value; }
+        public string AccessToken { get; set; }
+        public string UserInfo { get; set; }
+        public string Request { get; set; }
+        public string IDToken { get; set; }
 
         readonly ServerConfiguration config = new ServerConfiguration();
         readonly ServerConfigurationManager configurationManager = new ServerConfigurationManager();
- 
-        public string idToken = null;
+
 
         // Declare an instance for log4net.
         private static readonly ILog Log =
@@ -55,7 +51,7 @@ namespace io.asgardio.dotnet.oidc.sdk
         /// </summary>
         /// <returns> Returns Authorization code. </returns>
         public async Task Login()
-        { 
+        {
             // Generates state and PKCE values.
             string state = RandomDataBase64url(32);
             string codeVerifier = RandomDataBase64url(32);
@@ -64,7 +60,7 @@ namespace io.asgardio.dotnet.oidc.sdk
 
             // Creates HttpListener to listen for requests on above redirect URI.
             var http = new HttpListener();
-            
+
             // We need to have a trailing slash at the end of the URL. 
             var redirectUri = config.RedirectUri;
             if (!redirectUri.EndsWith("/"))
@@ -111,6 +107,7 @@ namespace io.asgardio.dotnet.oidc.sdk
                 Log.Info(String.Format("OAuth authorization error: {0}.", context.Request.QueryString.Get("error")));
                 return;
             }
+
             if (context.Request.QueryString.Get(Constants.Code) == null
                 || context.Request.QueryString.Get(Constants.State) == null)
             {
@@ -147,7 +144,7 @@ namespace io.asgardio.dotnet.oidc.sdk
             // Build the request.
             string tokenRequestBody = string.Format(Constants.TokenRequestBody,
                 code,
-                System.Uri.EscapeDataString(redirectURI),
+                Uri.EscapeDataString(redirectURI),
                 config.ClientId,
                 codeVerifier,
                 config.ClientSecret
@@ -205,14 +202,14 @@ namespace io.asgardio.dotnet.oidc.sdk
         /// <summary>
         /// Make the API call to Userinfo.
         /// </summary>
-        /// <param name="access_token"> Refers to 'accessToken'in the PerformCodeExchange method. </param>
+        /// <param name="accessToken"> Refers to 'accessToken'in the PerformCodeExchange method. </param>
         /// <returns> Returns UserInfo responce text. </returns>
-        public async Task UserinfoCall(string access_token)
+        public async Task UserinfoCall(string accessToken)
         {
             // Sends request.
             HttpWebRequest userinfoRequest = (HttpWebRequest)WebRequest.Create(config.UserInfoEndpoint);
             userinfoRequest.Method = Constants.MethodGet;
-            userinfoRequest.Headers.Add(string.Format("Authorization: Bearer {0}", access_token));
+            userinfoRequest.Headers.Add(string.Format("Authorization: Bearer {0}", accessToken));
             userinfoRequest.ContentType = Constants.ContentType;
             userinfoRequest.Accept = Constants.Accept;
 
@@ -229,13 +226,13 @@ namespace io.asgardio.dotnet.oidc.sdk
         /// <summary>
         /// Method for Logout.
         /// </summary>
-        /// <param name="access_token"> Refers to 'accessToken' in the Logout_button_click method in sample app. </param>
+        /// <param name="accessToken"> Refers to 'accessToken' in the Logout_button_click method in sample app. </param>
         /// <returns></returns>
-        public async Task Logout(string access_token)
+        public async Task Logout(string accessToken)
         {
             // Get id_token.  
-            dynamic json = JsonConvert.DeserializeObject(access_token);
-            idToken = json.id_token;
+            dynamic json = JsonConvert.DeserializeObject(accessToken);
+            IDToken = json.id_token;
 
             // Creates HttpListener to listen for requests on above redirect URI.
             var http = new HttpListener();
@@ -247,7 +244,7 @@ namespace io.asgardio.dotnet.oidc.sdk
             // Define redirect URI--> callback uri for Service Provider(SP).
             string postRedirectURI = string.Format(Constants.PostRedirectURI,
                 config.LogoutEndpoint,
-                idToken,
+                IDToken,
                 config.PostLogoutRedirectUri);
 
             // Opens request in the browser.    
@@ -306,6 +303,6 @@ namespace io.asgardio.dotnet.oidc.sdk
             // Strips padding.
             base64 = base64.Replace("=", "");
             return base64;
-        }       
+        }
     }
 }

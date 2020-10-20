@@ -21,10 +21,10 @@ using System.Xml;
 using System.ComponentModel;
 using System.Collections;
 using System.Windows;
+using Asgardio.Sdk.Oidc;
 
-namespace io.asgardio.dotnet.oidc.sdk.sample
+namespace Asgardio.Samples.Oidc
 {
-    using io.asgardio.dotnet.oidc.sdk;
     /// <summary>
     /// Interaction logic for Installer
     /// </summary>
