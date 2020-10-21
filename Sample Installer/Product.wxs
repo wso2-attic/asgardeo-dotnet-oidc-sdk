@@ -82,11 +82,11 @@
 
       <Directory Id="ProgramMenuFolder" Name="Programs">
         <Directory Id="ProgramMenuDir" Name="Pickup Manager - OIDC">
-            <Component Id="ProgramMenuDir" Guid="84DEDE0B-EE70-4D34-B030-F22DBDF56F9E">
-              <RemoveFolder Id='ProgramMenuDir' On='uninstall' />
-              <RegistryValue Root='HKCU' Key='Software\[Manufacturer]\[ProductName]' Type='string' Value='' KeyPath='yes' />
-            </Component>
-          </Directory>
+          <Component Id="ProgramMenuDir" Guid="84DEDE0B-EE70-4D34-B030-F22DBDF56F9E">
+            <RemoveFolder Id='ProgramMenuDir' On='uninstall' />
+            <RegistryValue Root='HKCU' Key='Software\[Manufacturer]\[ProductName]' Type='string' Value='' KeyPath='yes' />
+          </Component>
+        </Directory>
       </Directory>
 
       <Directory Id="DesktopFolder" Name="Desktop" />
@@ -109,10 +109,19 @@
 
       <Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="OAuthConfigDialog" Order="4">1</Publish>
       <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="OAuthConfigDialog" Order="1">1</Publish>
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
     </UI>
     <UIRef Id="WixUI_ErrorProgressText" />
-    
-    <?define Version = "0.0.0"?>
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1"/>
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Pickup Manager - OIDC v$(var.Version)" />
+    <Property Id="WixShellExecTarget" Value="[#PickupManagerEXE]" />
+
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <?ifndef Version ?>
+      <?define Version = "0.0.0"?>
+    <?endif?>
 
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
     <Property Id="CLIENT_ID" Secure="yes" />
@@ -125,6 +134,11 @@
     <Property Id="POST_LOGOUT_REDIRECT_URI" Value="http://localhost:8080/pickup-manager/postlogout/" />
 
     <WixVariable Id="WixUILicenseRtf" Value="../LICENSE.rtf" />
+
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_461_OR_LATER_INSTALLED" />
+    <Condition Message="This application requires .NET Framework 4.6.1 or higher. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_461_OR_LATER_INSTALLED]]>
+    </Condition>
 
     <Icon Id="PickupManager.exe" SourceFile="../Sample/Assets/manager.ico" />
   </Product>

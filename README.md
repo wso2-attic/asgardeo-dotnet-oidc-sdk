@@ -67,7 +67,8 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
 5. Continue the on-screen guidance and complete the installation.
 
 ### Running the sample
-Double click on the `Pickup Manager - OIDC v1.0.3` application available on your Desktop.<br/>
+Once the installation is complete the `Pickup Manager - OIDC v1.0.3` application wiil be launched automatically.<br/>
+You can always re-launch the application by double clicking on the `Pickup Manager - OIDC v1.0.3` application available on your Desktop.<br/>
 ![pickup manager](https://user-images.githubusercontent.com/15249242/95334396-aa17c580-08cb-11eb-83ee-3b88b8512f68.gif)
 
 ## How it works
@@ -82,7 +83,7 @@ The structure of the sample would be as follows:<br/>
 ![Sample Structure](https://user-images.githubusercontent.com/15249242/96110931-2f1f6200-0efe-11eb-97dd-6517b8234bb2.png)
 
 ### Trigger authentication
-In the [<APP_HOME>/LoginPage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/Sample/LoginPage.xaml#L30) page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
+In the [<APP_HOME>/LoginPage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/LoginPage.xaml#L30) page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
 ```xml
 <Button x:Name ="login" Click="LoginButton_Click"/>
 ```
@@ -91,7 +92,7 @@ The button click would trigger an authentication request, and redirect the user 
 Upon successful authentication, the user would be redirected to the application homepage.
 
 ### Retrieve user attributes
-In the [<APP_HOME>/LoginPage.xaml.cs](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/Sample/LoginPage.xaml.cs#L45) file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
+In the [<APP_HOME>/LoginPage.xaml.cs](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/LoginPage.xaml.cs#L45) file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
 
 ```csharp
 private async void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -114,7 +115,7 @@ private async void LoginButton_Click(object sender, RoutedEventArgs e)
 ```
 
 ### Trigger logout
-In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/23953ca46301af503977e688ccec0c8cfab1ad2c/Sample/HomePage.xaml#L48) file, we have added the following button to trigger a SLO flow:
+In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/HomePage.xaml#L48) file, we have added the following button to trigger a SLO flow:
 ```xml
 <Button x:Name="logoutButton" Click="Logout_button_click" />
 ```
@@ -136,7 +137,7 @@ This guide consist with the following sections.
 
 ### Prerequisites
 1. Microsoft Windows 8 (Or server equivalent) or greater.
-2. .NET Framework Standard 4.5.x or greater.
+2. [.NET Framework Standard 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461) or greater.
 3. Visual Studio 2017 Community or greater.
 
 ### Installing the SDK
@@ -201,12 +202,18 @@ var subject = json.sub;
 ```
 
 ## Building from the source
+### Prerequisites
+1. Microsoft Windows 8 (Or server equivalent) or greater.
+2. [.NET Framework Standard 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461) or greater.
+3. Visual Studio 2017 Community or greater.
+4. [WiX Toolset V3.x](https://wixtoolset.org/releases/) - Required only if you are building the full solution in `Release` configuration.
+
 To build the project from the source, follow the instructions given below.
 
 1. Clone the repository using the following command. 
 ``git clone https://github.com/asgardio/asgardio-dotnet-oidc-sdk.git``
 2. Open the solution using Visual Studio.
-3. Build the solution. 
+3. Build the solution in `Debug` configuration. 
 
 ## Contributing
 Please read [Contributing to the Code Base](http://wso2.github.io/) for details on our code of conduct, and the
