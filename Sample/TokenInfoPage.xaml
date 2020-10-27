@@ -12,12 +12,12 @@
     See the License for the specific language governing permissions and
     limitations under the License. -->
 
-<Window x:Class="Asgardio.Samples.Oidc.TokenInfoPage"
+<Window x:Class="Asgardio.OIDC.SDK.Sample.TokenInfoPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Asgardio.Samples.Oidc"
+        xmlns:local="clr-namespace:Asgardio.OIDC.SDK.Sample"
         mc:Ignorable="d"
         Title="Pickup Manager - Token Info" Height="725" Width="1000" HorizontalAlignment="Center" Background="White" 
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">

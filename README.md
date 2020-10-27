@@ -143,16 +143,16 @@ This guide consist with the following sections.
 ### Installing the SDK
 #### Using Nuget Package Manager
 1. Open the Nuget Package Manger.
-2. Search for [Asgardio.Sdk.Oidc](https://www.nuget.org/packages/Asgardio.Sdk.Oidc/).
+2. Search for [Asgardio.OIDC.SDK](https://www.nuget.org/packages/Asgardio.OIDC.SDK/).
 3. Include it with the suggested required dependencies for the project/solution. 
 
 Alternatively, you can also run the following command in the Package Manager CLI as shown below. 
 
-``Install-Package Asgardio.Sdk.Oidc -Version 0.1.0``
+``Install-Package Asgardio.OIDC.SDK -Version 0.1.0``
 
 #### Using the library DLL
-1. Download [Asgardio.Sdk.Oidc.dll](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v0.1.0/Asgardio.Sdk.Oidc.dll).
-2. Add the `Asgardio.Sdk.Oidc.dll` file as a Reference in your Visual Studio project.
+1. Download [Asgardio.OIDC.SDK.dll](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v0.1.0/Asgardio.OIDC.SDK.dll).
+2. Add the `Asgardio.OIDC.SDK.dll` file as a Reference in your Visual Studio project.
 3. Build the project. 
 
 Once you have installed the SDK, create a file named `App.config` as shown below and place it in the application path.

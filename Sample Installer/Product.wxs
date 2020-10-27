@@ -71,7 +71,7 @@
               </Component>
 
               <Component Id='Libraries' Guid='F7701A2C-FE05-4D37-B9CA-B021388A5E7A'>
-                <File Id='SdkDll' Name='Asgardio.Sdk.Oidc.dll' Source='../Sample/bin/Release/Asgardio.Sdk.Oidc.dll' KeyPath='yes' />
+                <File Id='SdkDll' Name='Asgardio.OIDC.SDK.dll' Source='../Sample/bin/Release/Asgardio.OIDC.SDK.dll' KeyPath='yes' />
                 <File Id='Log4netDll' Name='log4net.dll' Source='../Sample/bin/Release/log4net.dll' />
                 <File Id='NewtonsoftDll' Name='Newtonsoft.Json.dll' Source='../Sample/bin/Release/Newtonsoft.Json.dll' />
               </Component>

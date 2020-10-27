@@ -11,8 +11,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Version>0.1.0-SNAPSHOT</Version>
-    <AssemblyName>Asgardio.Sdk.Oidc</AssemblyName>
-    <RootNamespace>Asgardio.Sdk.Oidc</RootNamespace>
+    <AssemblyName>Asgardio.OIDC.SDK</AssemblyName>
+    <RootNamespace>Asgardio.OIDC.SDK</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

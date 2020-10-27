@@ -206,7 +206,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SDK\SDK.csproj">
       <Project>{ae12799c-7bc5-4e51-90bf-7adcbe411289}</Project>
-      <Name>Asgardio.Sdk.Oidc</Name>
+      <Name>Asgardio.OIDC.SDK</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

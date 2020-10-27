@@ -21,9 +21,9 @@ using System.Xml;
 using System.ComponentModel;
 using System.Collections;
 using System.Windows;
-using Asgardio.Sdk.Oidc;
+using Asgardio.OIDC.SDK;
 
-namespace Asgardio.Samples.Oidc
+namespace Asgardio.OIDC.SDK.Sample
 {
     /// <summary>
     /// Interaction logic for Installer
