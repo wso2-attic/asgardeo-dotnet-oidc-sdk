@@ -26,8 +26,8 @@ You can experience the capabilities of Asgardio .NET OIDC SDK by following this 
 
 ### Prerequisites
 1. Microsoft Windows 8 (Or server equivalent) or greater.
-2. [.NET Framework Standard 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461) or greater.
-3. WSO2 Identity Server
+2.[.NET Framework Standard 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461) or greater.
+3.[ WSO2 Identity Server](https://wso2.com/identity-and-access-management/)
 
 ### Configuring Identity Server
 Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample can be configured with any other preferred Identity Provider as well.
