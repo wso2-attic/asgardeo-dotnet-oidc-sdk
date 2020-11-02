@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WSO2")]
 [assembly: AssemblyProduct("Asgardio OIDC SDK Sample")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright �  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 // Let log4net know that it can look for configuration in the default 
