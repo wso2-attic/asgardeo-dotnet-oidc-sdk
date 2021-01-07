@@ -33,7 +33,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      Solution_Name: Asgardio .NET OIDC SDK.sln
+      Solution_Name: Asgardeo .NET OIDC SDK.sln
 
     steps:
     - name: Checkout

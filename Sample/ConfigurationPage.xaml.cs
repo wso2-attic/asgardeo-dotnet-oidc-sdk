@@ -28,7 +28,7 @@ namespace Asgardeo.OIDC.SDK.Sample
     {
         /// <summary>
         /// 'config' is an object that refers ServerConfiguration class 
-        /// in 'io.asgardeo.dotnet.oidc.sdk' library. 
+        /// in 'Asgardeo.OIDC.SDK' library. 
         /// </summary>
         readonly ServerConfiguration config = new ServerConfiguration();
 
@@ -53,7 +53,7 @@ namespace Asgardeo.OIDC.SDK.Sample
 
         /// <summary>
         /// Button click event for 'Update' button. This method refers to 
-        /// ServerConfigurationManager class --> UpdateAppSettings() method in 'io.asgardeo.dotnet.oidc.sdk' library
+        /// ServerConfigurationManager class --> UpdateAppSettings() method in 'Asgardeo.OIDC.SDK' library
         /// and save user given data to 'app.config' file.  
         /// </summary>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)

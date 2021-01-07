@@ -28,7 +28,7 @@ namespace Asgardeo.OIDC.SDK.Sample
     {
         /// <summary>
         /// This method refers to ServerConfigurationManager class --> IsEmpty() method
-        /// in 'io.asgardeo.dotnet.oidc.sdk' library and check whether each and every <app_settings> is 
+        /// in 'Asgardeo.OIDC.SDK' library and check whether each and every <app_settings> is 
         /// completed in 'app.config' file. If <app_settings> data is empty it'll load the 'ConfigurationPage',
         /// else load the 'LoginPage'.
         /// </summary>

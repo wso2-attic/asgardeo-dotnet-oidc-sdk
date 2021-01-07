@@ -40,7 +40,7 @@ namespace Asgardeo.OIDC.SDK.Sample
 
         /// <summary>
         /// 'config' is an object that refers ServerConfiguration class 
-        /// in 'io.asgardeo.dotnet.oidc.sdk' library.
+        /// in 'Asgardeo.OIDC.SDK' library.
         /// </summary>
         readonly ServerConfiguration config = new ServerConfiguration();
         readonly AuthenticationHelper authenticationHelper = new AuthenticationHelper();
@@ -100,7 +100,7 @@ namespace Asgardeo.OIDC.SDK.Sample
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    // Redirect to Logout method in io.asgardeo.dotnet.oidc.sdk.dll file.
+                    // Redirect to Logout method in Asgardeo.OIDC.SDK.dll file.
                     await authenticationHelper.Logout(accessToken);
                     request = authenticationHelper.Request;
 

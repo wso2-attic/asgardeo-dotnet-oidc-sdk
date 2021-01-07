@@ -42,7 +42,7 @@ namespace Asgardeo.OIDC.SDK.Sample
         /// <summary>
         /// Constructor for TokenInfoPage class.
         /// </summary>
-        /// <param name="accessToken"> Refers to AuthenticationHelper class login() function in io.asgardeo.dotnet.oidc.sdk.dll file. </param>
+        /// <param name="accessToken"> Refers to AuthenticationHelper class login() function in Asgardeo.OIDC.SDK.dll file. </param>
         public TokenInfoPage(string accessToken)
         {
             InitializeComponent();
