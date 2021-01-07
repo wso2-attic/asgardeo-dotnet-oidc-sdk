@@ -17,9 +17,9 @@
  */
 
 using System.Windows;
-using Asgardio.OIDC.SDK;
+using Asgardeo.OIDC.SDK;
 
-namespace Asgardio.OIDC.SDK.Sample
+namespace Asgardeo.OIDC.SDK.Sample
 {
     /// <summary>
     /// Interaction logic for ConfigurationPage.xaml.
@@ -28,7 +28,7 @@ namespace Asgardio.OIDC.SDK.Sample
     {
         /// <summary>
         /// 'config' is an object that refers ServerConfiguration class 
-        /// in 'io.asgardio.dotnet.oidc.sdk' library. 
+        /// in 'io.asgardeo.dotnet.oidc.sdk' library. 
         /// </summary>
         readonly ServerConfiguration config = new ServerConfiguration();
 
@@ -53,7 +53,7 @@ namespace Asgardio.OIDC.SDK.Sample
 
         /// <summary>
         /// Button click event for 'Update' button. This method refers to 
-        /// ServerConfigurationManager class --> UpdateAppSettings() method in 'io.asgardio.dotnet.oidc.sdk' library
+        /// ServerConfigurationManager class --> UpdateAppSettings() method in 'io.asgardeo.dotnet.oidc.sdk' library
         /// and save user given data to 'app.config' file.  
         /// </summary>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)

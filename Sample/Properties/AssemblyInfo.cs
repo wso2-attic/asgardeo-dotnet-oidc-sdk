@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Asgardio OIDC SDK Sample")]
+[assembly: AssemblyTitle("Asgardeo OIDC SDK Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WSO2")]
-[assembly: AssemblyProduct("Asgardio OIDC SDK Sample")]
+[assembly: AssemblyProduct("Asgardeo OIDC SDK Sample")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

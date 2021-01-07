@@ -20,9 +20,9 @@ using Newtonsoft.Json;
 using System;
 using System.Windows;
 using log4net;
-using Asgardio.OIDC.SDK;
+using Asgardeo.OIDC.SDK;
 
-namespace Asgardio.OIDC.SDK.Sample
+namespace Asgardeo.OIDC.SDK.Sample
 {
     /// <summary>
     /// Interaction logic for TokenInfoPage.xaml.
@@ -42,7 +42,7 @@ namespace Asgardio.OIDC.SDK.Sample
         /// <summary>
         /// Constructor for TokenInfoPage class.
         /// </summary>
-        /// <param name="accessToken"> Refers to AuthenticationHelper class login() function in io.asgardio.dotnet.oidc.sdk.dll file. </param>
+        /// <param name="accessToken"> Refers to AuthenticationHelper class login() function in io.asgardeo.dotnet.oidc.sdk.dll file. </param>
         public TokenInfoPage(string accessToken)
         {
             InitializeComponent();

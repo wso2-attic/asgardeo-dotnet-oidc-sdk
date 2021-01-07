@@ -26,7 +26,7 @@ using System.IO;
 using System.Security.Cryptography;
 using log4net;
 
-namespace Asgardio.OIDC.SDK
+namespace Asgardeo.OIDC.SDK
 {
     /// <summary>
     /// Manages all basic authentications.

@@ -17,9 +17,9 @@
  */
 
 using System.Windows;
-using Asgardio.OIDC.SDK;
+using Asgardeo.OIDC.SDK;
 
-namespace Asgardio.OIDC.SDK.Sample
+namespace Asgardeo.OIDC.SDK.Sample
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml.

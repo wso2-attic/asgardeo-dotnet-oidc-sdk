@@ -19,9 +19,9 @@
 using Newtonsoft.Json;
 using System.Windows;
 using log4net;
-using Asgardio.OIDC.SDK;
+using Asgardeo.OIDC.SDK;
 
-namespace Asgardio.OIDC.SDK.Sample
+namespace Asgardeo.OIDC.SDK.Sample
 {
     /// <summary>
     /// Interaction logic for HomePage.xaml.
@@ -40,7 +40,7 @@ namespace Asgardio.OIDC.SDK.Sample
 
         /// <summary>
         /// 'config' is an object that refers ServerConfiguration class 
-        /// in 'io.asgardio.dotnet.oidc.sdk' library.
+        /// in 'io.asgardeo.dotnet.oidc.sdk' library.
         /// </summary>
         readonly ServerConfiguration config = new ServerConfiguration();
         readonly AuthenticationHelper authenticationHelper = new AuthenticationHelper();
@@ -100,7 +100,7 @@ namespace Asgardio.OIDC.SDK.Sample
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    // Redirect to Logout method in io.asgardio.dotnet.oidc.sdk.dll file.
+                    // Redirect to Logout method in io.asgardeo.dotnet.oidc.sdk.dll file.
                     await authenticationHelper.Logout(accessToken);
                     request = authenticationHelper.Request;
 
