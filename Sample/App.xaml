@@ -16,10 +16,10 @@
   ~ under the License.
 -->
     
-<Application x:Class="Asgardio.OIDC.SDK.Sample.App"
+<Application x:Class="Asgardeo.OIDC.SDK.Sample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Asgardio.OIDC.SDK.Sample">
+             xmlns:local="clr-namespace:Asgardeo.OIDC.SDK.Sample">
     <Application.Resources>
          
     </Application.Resources>

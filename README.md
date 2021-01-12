@@ -1,12 +1,12 @@
-# Asgardio .NET OIDC SDK
+# Asgardeo .NET OIDC SDK
 
-[![Build Status](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fwso2.org%2Fjenkins%2Fjob%2Fasgardio%2Fjob%2Fasgardio-dotnet-oidc-sdk%2F&style=flat)](https://wso2.org/jenkins/job/asgardio/job/asgardio-dotnet-oidc-sdk/) [![Stackoverflow](https://img.shields.io/badge/Ask%20for%20help%20on-Stackoverflow-orange)](https://stackoverflow.com/questions/tagged/wso2is)
+[![Build Status](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fwso2.org%2Fjenkins%2Fjob%2Fasgardeo%2Fjob%2Fasgardeo-dotnet-oidc-sdk%2F&style=flat)](https://wso2.org/jenkins/job/asgardeo/job/asgardeo-dotnet-oidc-sdk/) [![Stackoverflow](https://img.shields.io/badge/Ask%20for%20help%20on-Stackoverflow-orange)](https://stackoverflow.com/questions/tagged/wso2is)
 [![Join the chat at https://join.slack.com/t/wso2is/shared_invite/enQtNzk0MTI1OTg5NjM1LTllODZiMTYzMmY0YzljYjdhZGExZWVkZDUxOWVjZDJkZGIzNTE1NDllYWFhM2MyOGFjMDlkYzJjODJhOWQ4YjE](https://img.shields.io/badge/Join%20us%20on-Slack-%23e01563.svg)](https://join.slack.com/t/wso2is/shared_invite/enQtNzk0MTI1OTg5NjM1LTllODZiMTYzMmY0YzljYjdhZGExZWVkZDUxOWVjZDJkZGIzNTE1NDllYWFhM2MyOGFjMDlkYzJjODJhOWQ4YjE)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/wso2/product-is/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/follow/wso2.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=wso2)
 ---
 
-Asgardio .NET OIDC SDK enables you to add OIDC based login, logout to your .NET apps in a  simple manner.
+Asgardeo .NET OIDC SDK enables you to add OIDC based login, logout to your .NET apps in a  simple manner.
 
 - [Getting Started](#getting-started)
 - [How it works](#how-it-works)
@@ -17,7 +17,7 @@ Asgardio .NET OIDC SDK enables you to add OIDC based login, logout to your .NET 
 - [License](#license)
 
 ## Getting started
-You can experience the capabilities of Asgardio .NET OIDC SDK by following this small guide which contains main sections as listed below.
+You can experience the capabilities of Asgardeo .NET OIDC SDK by following this small guide which contains main sections as listed below.
 
   * [Prerequisites](#prerequisites)
   * [Configuring the sample](#configuring-the-sample)
@@ -49,7 +49,7 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
     ![OAuth Client Credentials](https://user-images.githubusercontent.com/15249242/91567068-27155e00-e962-11ea-8eab-b3bdd790bfd4.png)
 
 ### Configuring the sample
-1. Download the [PickupManagerOIDC-v0.1.0.msi](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v0.1.0/PickupManagerOIDC-v0.1.0.msi).
+1. Download the [PickupManagerOIDC-v0.1.0.msi](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/releases/download/v0.1.0/PickupManagerOIDC-v0.1.0.msi).
 2. Double click the `PickupManagerOIDC-v0.1.0.msi`.
 3. Follow the on-screen guidance until you get to the app configuration window.
    ![Sample Setup](https://user-images.githubusercontent.com/15249242/95815321-064e6f80-0d3a-11eb-91bf-44dd6ff47b45.gif)
@@ -72,8 +72,8 @@ You can always re-launch the application by double clicking on the `Pickup Manag
 ![pickup manager](https://user-images.githubusercontent.com/15249242/95334396-aa17c580-08cb-11eb-83ee-3b88b8512f68.gif)
 
 ## How it works
-This section explains a detailed walkthrough on how key aspects are handled in the Asgardio .NET OIDC SDK.
-Througout this section we will refer to the [source folder](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/tree/master/Sample) of the sample as <APP_HOME>
+This section explains a detailed walkthrough on how key aspects are handled in the Asgardeo .NET OIDC SDK.
+Througout this section we will refer to the [source folder](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/tree/master/Sample) of the sample as <APP_HOME>
 
   * [Trigger authentication](#trigger-authentication)
   * [Retrieve user attributes](#retrieve-user-attributes)
@@ -83,7 +83,7 @@ The structure of the sample would be as follows:<br/>
 ![Sample Structure](https://user-images.githubusercontent.com/15249242/96110931-2f1f6200-0efe-11eb-97dd-6517b8234bb2.png)
 
 ### Trigger authentication
-In the [<APP_HOME>/LoginPage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/LoginPage.xaml#L30) page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
+In the [<APP_HOME>/LoginPage.xaml](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/LoginPage.xaml#L30) page, we have registered a `Click` event named `LoginButton_Click` for the login button to trigger an OIDC authentication:
 ```xml
 <Button x:Name ="login" Click="LoginButton_Click"/>
 ```
@@ -92,7 +92,7 @@ The button click would trigger an authentication request, and redirect the user 
 Upon successful authentication, the user would be redirected to the application homepage.
 
 ### Retrieve user attributes
-In the [<APP_HOME>/LoginPage.xaml.cs](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/LoginPage.xaml.cs#L45) file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
+In the [<APP_HOME>/LoginPage.xaml.cs](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/LoginPage.xaml.cs#L45) file, we have added the following code inside the `LoginButton_Click` trigger method to get the user subject value and the user attributes referring the SDK API.
 
 ```csharp
 private async void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -115,7 +115,7 @@ private async void LoginButton_Click(object sender, RoutedEventArgs e)
 ```
 
 ### Trigger logout
-In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/HomePage.xaml#L48) file, we have added the following button to trigger a SLO flow:
+In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/blob/fbb348e51ce584ed7f044a77d775d9de732e6458/Sample/HomePage.xaml#L48) file, we have added the following button to trigger a SLO flow:
 ```xml
 <Button x:Name="logoutButton" Click="Logout_button_click" />
 ```
@@ -123,7 +123,7 @@ In the [<APP_HOME>/HomePage.xaml](https://github.com/asgardio/asgardio-dotnet-oi
 Clicking on the logout link would trigger the SLO flow.
 
 ## Integrating OIDC SDK to your existing .NET application
-This section will guide you on integrating OIDC into your existing .NET application with the Asgardio Dotnet OIDC SDK.
+This section will guide you on integrating OIDC into your existing .NET application with the Asgardeo Dotnet OIDC SDK.
 This allows a .NET application (i.e. Service Provider) to connect with an IDP using the OpenID Connect protocol.
 This guide consist with the following sections.
 - [Introduction](#introduction)
@@ -143,16 +143,16 @@ This guide consist with the following sections.
 ### Installing the SDK
 #### Using Nuget Package Manager
 1. Open the Nuget Package Manger.
-2. Search for [Asgardio.OIDC.SDK](https://www.nuget.org/packages/Asgardio.OIDC.SDK/).
+2. Search for [Asgardeo.OIDC.SDK](https://www.nuget.org/packages/Asgardeo.OIDC.SDK/).
 3. Include it with the suggested required dependencies for the project/solution. 
 
 Alternatively, you can also run the following command in the Package Manager CLI as shown below. 
 
-``Install-Package Asgardio.OIDC.SDK -Version 0.1.0``
+``Install-Package Asgardeo.OIDC.SDK -Version 0.1.0``
 
 #### Using the library DLL
-1. Download [Asgardio.OIDC.SDK.dll](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/releases/download/v0.1.0/Asgardio.OIDC.SDK.dll).
-2. Add the `Asgardio.OIDC.SDK.dll` file as a Reference in your Visual Studio project.
+1. Download [Asgardeo.OIDC.SDK.dll](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/releases/download/v0.1.0/Asgardeo.OIDC.SDK.dll).
+2. Add the `Asgardeo.OIDC.SDK.dll` file as a Reference in your Visual Studio project.
 3. Build the project. 
 
 Once you have installed the SDK, create a file named `App.config` as shown below and place it in the application path.
@@ -211,7 +211,7 @@ var subject = json.sub;
 To build the project from the source, follow the instructions given below.
 
 1. Clone the repository using the following command. 
-``git clone https://github.com/asgardio/asgardio-dotnet-oidc-sdk.git``
+``git clone https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk.git``
 2. Open the solution using Visual Studio.
 3. Build the solution in `Debug` configuration. 
 
@@ -220,7 +220,7 @@ Please read [Contributing to the Code Base](http://wso2.github.io/) for details 
  process for submitting pull requests to us.
  
 ### Reporting issues
-We encourage you to report issues, improvements, and feature requests creating [git Issues](https://github.com/asgardio/asgardio-dotnet-oidc-sdk/issues).
+We encourage you to report issues, improvements, and feature requests creating [git Issues](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/issues).
 
 Important: And please be advised that security issues must be reported to security@wso2.com, not as GitHub issues, 
 in order to reach the proper audience. We strongly advise following the WSO2 Security Vulnerability Reporting Guidelines

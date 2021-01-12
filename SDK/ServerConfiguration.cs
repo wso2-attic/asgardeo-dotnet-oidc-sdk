@@ -18,7 +18,7 @@
 
 using System.Configuration;
 
-namespace Asgardio.OIDC.SDK
+namespace Asgardeo.OIDC.SDK
 {
     /// <summary>
     /// Manage all server configurations.

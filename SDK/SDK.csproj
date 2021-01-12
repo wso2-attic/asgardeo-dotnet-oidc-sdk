@@ -5,13 +5,13 @@
     <Product>Identity Server</Product>
     <Copyright>Apache 2.0</Copyright>
     <Authors>WSO2</Authors>
-    <RepositoryUrl>https://github.com/asgardio/asgardio-dotnet-oidc-sdk</RepositoryUrl>
+    <RepositoryUrl>https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Version>0.1.1-SNAPSHOT</Version>
-    <AssemblyName>Asgardio.OIDC.SDK</AssemblyName>
-    <RootNamespace>Asgardio.OIDC.SDK</RootNamespace>
+    <AssemblyName>Asgardeo.OIDC.SDK</AssemblyName>
+    <RootNamespace>Asgardeo.OIDC.SDK</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
