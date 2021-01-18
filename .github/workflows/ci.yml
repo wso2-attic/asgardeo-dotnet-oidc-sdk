@@ -1,0 +1,214 @@
+#  Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+#  WSO2 Inc. licenses this file to you under the Apache License,
+#  Version 2.0 (the "License"); you may not use this file except
+#  in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing,
+#  software distributed under the License is distributed on an
+#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied. See the License for the
+#  specific language governing permissions and limitations
+#  under the License.
+
+# This workflow builds the pull requests and pushes to the master branch.
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  
+  # Allows to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  GIT_USERNAME: asgardeo-github-bot
+  SDK_DIR: SDK
+  SAMPLE_DIR: Sample
+  INSTALLER_DIR: Sample Installer
+  SOLUTION_NAME: Asgardeo .NET OIDC SDK.sln
+
+jobs:
+  build:
+    name: Commits & PR Builder
+    runs-on: windows-latest
+    outputs:
+      current_version: ${{ steps.version_inferring_step.outputs.current_version }}
+      release_version: ${{ steps.version_inferring_step.outputs.release_version }}
+      development_version: ${{ steps.version_inferring_step.outputs.development_version }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Infer Current Release Version, Next Release Version & Next Development Version
+      id: version_inferring_step
+      run: |
+        $version_from_file = ([xml] (Get-Content $env:SDK_DIR\SDK.csproj)).Project.PropertyGroup.Version
+        $version_object = [version] $version_from_file.Split("-")[0]
+        $current_version = "$($version_object.Major).$($version_object.Minor).$($version_object.Build - 1)"
+        $release_version = "$($version_object.Major).$($version_object.Minor).$($version_object.Build)"
+        $development_version = "$($version_object.Major).$($version_object.Minor).$($version_object.Build + 1)-SNAPSHOT"
+        echo "::set-output name=current_version::$current_version"
+        echo "::set-output name=release_version::$release_version"
+        echo "::set-output name=development_version::$development_version"
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Setup NuGet.exe
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Install Wix Toolset
+      run: |
+          (New-Object System.Net.WebClient).DownloadFile("https://github.com/wixtoolset/wix3/releases/download/wix3112rtm/wix311-binaries.zip","wix311-binaries.zip")
+          Expand-Archive .\wix311-binaries.zip wix311-binaries
+          echo "wix311-binaries" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+    - name: Restore Nuget Packages
+      run:  nuget restore $env:SOLUTION_NAME
+
+    - name: Build the SDK and Sample
+      run:  msbuild $env:SOLUTION_NAME /t:Rebuild /p:Configuration=Release /p:Version=${{ steps.version_inferring_step.outputs.release_version }}
+        
+    - name: Upload SDK build artifacts
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: sdk-build-artifacts
+        path: ${{ env.SDK_DIR }}/bin/Release/
+        if-no-files-found: error
+        retention-days: 1
+        
+    - name: Upload Sample Installer build artifacts
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: sample-installer-build-artifacts
+        path: ${{ env.INSTALLER_DIR }}/bin/Release/
+        if-no-files-found: error
+        retention-days: 1
+  
+  release:
+    name: Release Publisher
+    if: github.event_name == 'push' && github.actor != github.env.GIT_USERNAME
+    needs: [ build ]
+    env:
+      CURRENT_VERSION: ${{ needs.build.outputs.current_version }}
+      RELEASE_VERSION: ${{ needs.build.outputs.release_version }}
+      DEVELOPMENT_VERSION: ${{ needs.build.outputs.development_version }}
+    runs-on: windows-latest
+    steps:
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
+      
+      - name: Setup NuGet.exe
+        uses: NuGet/setup-nuget@v1.0.5
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ASGARDEO_GITHUB_BOT_TOKEN }}
+        
+      - name: Download SDK build artifacts from 'build' job
+        uses: actions/download-artifact@v2.0.8
+        with:
+          name: sdk-build-artifacts
+          path: sdk-build-artifacts
+          
+      - name: Download Sample Installer build artifacts from 'build' job
+        uses: actions/download-artifact@v2.0.8
+        with:
+          name: sample-installer-build-artifacts
+          path: sample-installer-build-artifacts
+
+      - name: Configure Git User
+        env:
+          GIT_EMAIL: ${{ secrets.ASGARDEO_GITHUB_BOT_EMAIL }}
+        run: |
+          git config user.name "$env:GIT_USERNAME"
+          git config user.email "$env:GIT_EMAIL"
+
+      - name: Bump SDK version to v${{ env.RELEASE_VERSION }}
+        run: |
+          $sdkProjectFileContentXml = [xml](Get-Content $env:SDK_DIR\SDK.csproj)
+          $versionPropertyXmlNode = $sdkProjectFileContentXml.SelectSingleNode("Project//PropertyGroup//Version")
+          $versionPropertyXmlNode.InnerText = $env:RELEASE_VERSION
+          $sdkProjectFileContentXml.Save("$env:SDK_DIR\SDK.csproj")
+          
+      - name: Bump Sample version to v${{ env.RELEASE_VERSION }}
+        run: |
+          $versionPattern = '\[assembly: AssemblyVersion\("(.*)"\)\]'
+          (Get-Content "$env:SAMPLE_DIR\Properties\AssemblyInfo.cs") | ForEach-Object{ if($_ -match $versionPattern){ '[assembly: AssemblyVersion("{0}")]' -f "$env:RELEASE_VERSION" } else { $_ } } | Set-Content "$env:SAMPLE_DIR\Properties\AssemblyInfo.cs"
+        
+      - name: Update version references in README to v${{ env.RELEASE_VERSION }}
+        run: ((Get-Content -Path README.md -Raw) -replace "$env:CURRENT_VERSION","$env:RELEASE_VERSION") | Set-Content -NoNewline -Path README.md
+     
+      - name: Restore Nuget Packages
+        run:  nuget restore $env:SOLUTION_NAME
+
+      - name: Build the SDK and Sample after version bump to v${{ env.RELEASE_VERSION }}
+        run:  msbuild $env:SOLUTION_NAME /t:Rebuild /p:Configuration=Debug
+        
+      - name: Create a commit for version bump - v${{ env.RELEASE_VERSION }}
+        run: |
+          git status
+          git add README.md $env:SDK_DIR\SDK.csproj $env:SAMPLE_DIR\Properties\AssemblyInfo.cs
+          git commit -m "[WSO2 Release][Release $env:RELEASE_VERSION]Prepare release v$env:RELEASE_VERSION"
+            
+      - name: Create Release - v${{ env.RELEASE_VERSION }}
+        id: create_release
+        uses: actions/create-release@v1.1.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.ASGARDEO_GITHUB_BOT_TOKEN }}
+        with:
+          tag_name: v${{ env.RELEASE_VERSION }}
+          release_name: Asgardeo .NET OIDC SDK Release - v${{ env.RELEASE_VERSION }}
+          body: Asgardeo .NET OIDC SDK version - v${{ env.RELEASE_VERSION }} released!
+
+      - name: Upload Release Asset - Asgardeo.OIDC.SDK.dll
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.ASGARDEO_GITHUB_BOT_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: sdk-build-artifacts/net461/Asgardeo.OIDC.SDK.dll
+          asset_name: Asgardeo.OIDC.SDK.dll
+          asset_content_type: application/octet-stream
+
+      - name: Upload Release Asset - PickupManagerOIDC-v${{ env.RELEASE_VERSION }}.msi
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.ASGARDEO_GITHUB_BOT_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: sample-installer-build-artifacts/PickupManagerOIDC-v${{ env.RELEASE_VERSION }}.msi
+          asset_name: PickupManagerOIDC-v${{ env.RELEASE_VERSION }}.msi
+          asset_content_type: application/octet-stream
+
+      - name: Push the SDK to Nuget
+        env:
+          NUGET_TOKEN: ${{ secrets.ASGARDEO_NUGET_TOKEN }}
+        run: nuget push $env:SDK_DIR\bin\Release\Asgardeo.OIDC.SDK.${{ env.RELEASE_VERSION }}.nupkg $env:NUGET_TOKEN -Source https://api.nuget.org/v3/index.json
+        
+      - name: Bump SDK version to v${{ env.DEVELOPMENT_VERSION }}
+        run: |
+          $sdkProjectFileContentXml = [xml](Get-Content $env:SDK_DIR\SDK.csproj)
+          $versionPropertyXmlNode = $sdkProjectFileContentXml.SelectSingleNode("Project//PropertyGroup//Version")
+          $versionPropertyXmlNode.InnerText = $env:DEVELOPMENT_VERSION
+          $sdkProjectFileContentXml.Save("$env:SDK_DIR\SDK.csproj")
+          
+      - name: Build the SDK and Sample after the version bump to v${{ env.DEVELOPMENT_VERSION }}
+        run:  msbuild $env:SOLUTION_NAME /t:Rebuild /p:Configuration=Debug
+        
+      - name: Create a commit for version bump - v${{ env.DEVELOPMENT_VERSION }}
+        run: |
+          git status
+          git add $env:SDK_DIR\SDK.csproj
+          git commit -m "[WSO2 Release][Release $env:RELEASE_VERSION]Prepare for next development iteration"
+         
+      - name: Push the pending commits to repository
+        run: git push
