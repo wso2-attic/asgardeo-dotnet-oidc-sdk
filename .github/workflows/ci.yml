@@ -192,7 +192,7 @@ jobs:
       - name: Push the SDK to Nuget
         env:
           NUGET_TOKEN: ${{ secrets.ASGARDEO_NUGET_TOKEN }}
-        run: nuget push $env:SDK_DIR\bin\Release\Asgardeo.OIDC.SDK.${{ env.RELEASE_VERSION }}.nupkg $env:NUGET_TOKEN -Source https://api.nuget.org/v3/index.json
+        run: nuget push sdk-build-artifacts\Asgardeo.OIDC.SDK.${{ env.RELEASE_VERSION }}.nupkg $env:NUGET_TOKEN -Source https://api.nuget.org/v3/index.json
         
       - name: Bump SDK version to v${{ env.DEVELOPMENT_VERSION }}
         run: |
