@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <Company>WSO2</Company>
@@ -9,7 +9,7 @@
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>0.1.1-SNAPSHOT</Version>
+    <Version>0.1.1</Version>
     <AssemblyName>Asgardeo.OIDC.SDK</AssemblyName>
     <RootNamespace>Asgardeo.OIDC.SDK</RootNamespace>
   </PropertyGroup>

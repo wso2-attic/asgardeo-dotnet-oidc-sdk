@@ -50,8 +50,8 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
     ![OAuth Client Credentials](https://user-images.githubusercontent.com/15249242/91567068-27155e00-e962-11ea-8eab-b3bdd790bfd4.png)
 
 ### Configuring the sample
-1. Download the [PickupManagerOIDC-v0.1.0.msi](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/releases/download/v0.1.0/PickupManagerOIDC-v0.1.0.msi).
-2. Double click the `PickupManagerOIDC-v0.1.0.msi`.
+1. Download the [PickupManagerOIDC-v0.1.1.msi](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/releases/download/v0.1.1/PickupManagerOIDC-v0.1.1.msi).
+2. Double click the `PickupManagerOIDC-v0.1.1.msi`.
 3. Follow the on-screen guidance until you get to the app configuration window.
    ![Sample Setup](https://user-images.githubusercontent.com/15249242/95815321-064e6f80-0d3a-11eb-91bf-44dd6ff47b45.gif)
 
@@ -68,8 +68,8 @@ Here we are using WSO2 Identity Server as the OIDC Identity Provider. The sample
 5. Continue the on-screen guidance and complete the installation.
 
 ### Running the sample
-Once the installation is complete the `Pickup Manager - OIDC v0.1.0` application wiil be launched automatically.<br/>
-You can always re-launch the application by double clicking on the `Pickup Manager - OIDC v0.1.0` application available on your Desktop.<br/>
+Once the installation is complete the `Pickup Manager - OIDC v0.1.1` application wiil be launched automatically.<br/>
+You can always re-launch the application by double clicking on the `Pickup Manager - OIDC v0.1.1` application available on your Desktop.<br/>
 ![pickup manager](https://user-images.githubusercontent.com/15249242/95334396-aa17c580-08cb-11eb-83ee-3b88b8512f68.gif)
 
 ## How it works
@@ -149,10 +149,10 @@ This guide consist with the following sections.
 
 Alternatively, you can also run the following command in the Package Manager CLI as shown below. 
 
-``Install-Package Asgardeo.OIDC.SDK -Version 0.1.0``
+``Install-Package Asgardeo.OIDC.SDK -Version 0.1.1``
 
 #### Using the library DLL
-1. Download [Asgardeo.OIDC.SDK.dll](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/releases/download/v0.1.0/Asgardeo.OIDC.SDK.dll).
+1. Download [Asgardeo.OIDC.SDK.dll](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/releases/download/v0.1.1/Asgardeo.OIDC.SDK.dll).
 2. Add the `Asgardeo.OIDC.SDK.dll` file as a Reference in your Visual Studio project.
 3. Build the project. 
 
