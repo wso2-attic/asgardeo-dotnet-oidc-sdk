@@ -9,7 +9,7 @@
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>0.1.1</Version>
+    <Version>0.1.2-SNAPSHOT</Version>
     <AssemblyName>Asgardeo.OIDC.SDK</AssemblyName>
     <RootNamespace>Asgardeo.OIDC.SDK</RootNamespace>
   </PropertyGroup>
