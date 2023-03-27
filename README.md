@@ -1,4 +1,8 @@
-# Asgardeo .NET OIDC SDK
+# [DEPRECATED] Asgardeo .NET OIDC SDK
+
+## :warning: Warning!
+### .NET SDK is no longer encoraged and enriched by Asgardeo and may not work with the latest versions.
+### You can implement login using [Authorization Code flow](https://wso2.com/asgardeo/docs/guides/authentication/oidc/implement-auth-code/#prerequisites) with Asgardeo using OIDC standards.
 
 ![Build Status](https://github.com/asgardeo/asgardeo-dotnet-oidc-sdk/workflows/CI/badge.svg)
 [![Stackoverflow](https://img.shields.io/badge/Ask%20for%20help%20on-Stackoverflow-orange)](https://stackoverflow.com/questions/tagged/wso2is)
